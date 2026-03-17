@@ -59,6 +59,20 @@
     border-color: #FF4500 !important;
     color: #FFFFFF !important;
   }
+
+  .card--standard {
+    transition: box-shadow 0.3s ease;
+  }
+  .card--standard:hover {
+    box-shadow: 0 0 0 1.5px #0A0A0A, 0 0 24px rgba(10, 10, 10, 0.35);
+  }
+  .card--standard img {
+    filter: saturate(0);
+    transition: filter 0.3s ease;
+  }
+  .card--standard:hover img {
+    filter: saturate(1);
+  }
 {%- endstyle -%}
 
 <div class="section-{{ section.id }}-padding gradient color-{{ section.settings.color_scheme }}">
