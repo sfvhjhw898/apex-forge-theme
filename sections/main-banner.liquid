@@ -1,77 +1,45 @@
-{% comment %}
-  APEX Performance — Main Banner
-  Full-viewport dark hero with bold graphic typography
-{% endcomment %}
-
+```liquid
 <section style="position:relative;min-height:100svh;background:#0A0A0A;overflow:hidden;display:flex;align-items:flex-end;">
   
-  {% comment %} Athlete/Product Image {% endcomment %}
   {% if section.settings.image %}
     <img 
       src="{{ section.settings.image | image_url: width: 1200 }}"
       srcset="{{ section.settings.image | image_url: width: 600 }} 600w,
-              {{ section.settings.image | image_url: width: 900 }} 900w,
               {{ section.settings.image | image_url: width: 1200 }} 1200w,
-              {{ section.settings.image | image_url: width: 1600 }} 1600w"
+              {{ section.settings.image | image_url: width: 1800 }} 1800w"
       sizes="44vw"
       alt="{{ section.settings.image.alt | escape }}"
       loading="eager"
       style="position:absolute;right:0;top:0;width:44%;height:100%;object-fit:cover;object-position:center;mix-blend-mode:luminosity;opacity:0.75;z-index:1;"
     >
-    
-    {% comment %} Red Vignette Overlay {% endcomment %}
     <div style="position:absolute;right:0;top:0;width:44%;height:100%;background:linear-gradient(to left, rgba(255,69,0,0.18) 0%, transparent 100%);z-index:2;"></div>
   {% endif %}
 
-  {% comment %} Red Diagonal Bar {% endcomment %}
+  <div style="position:absolute;bottom:52%;left:-0.01em;font-family:'Geist','Arial Black',sans-serif;font-size:clamp(80px,16vw,220px);font-weight:900;color:transparent;-webkit-text-stroke:2px rgba(255,255,255,0.85);line-height:0.9;pointer-events:none;z-index:2;">
+    TRAIN
+  </div>
+
+  <div style="position:absolute;bottom:28%;left:-0.01em;font-family:'Geist','Arial Black',sans-serif;font-size:clamp(80px,16vw,220px);font-weight:900;color:#FFFFFF;line-height:0.9;pointer-events:none;z-index:2;">
+    HARDER
+  </div>
+
   <div style="position:absolute;width:5px;height:35vh;background:#FF4500;right:32%;top:12%;transform:rotate(-14deg);z-index:3;"></div>
 
-  {% comment %} Outlined Text "TRAIN" {% endcomment %}
-  <div style="position:absolute;bottom:52%;left:-0.01em;font-family:'Geist','Arial Black',sans-serif;font-size:clamp(80px,16vw,220px);font-weight:900;color:transparent;-webkit-text-stroke:2px rgba(255,255,255,0.85);line-height:0.9;pointer-events:none;z-index:2;">
-    {% assign words = section.settings.heading | split: ' ' %}
-    {% if words.size > 0 %}{{ words[0] }}{% endif %}
-  </div>
-
-  {% comment %} Filled Text "HARDER" {% endcomment %}
-  <div style="position:absolute;bottom:28%;left:-0.01em;font-family:'Geist','Arial Black',sans-serif;font-size:clamp(80px,16vw,220px);font-weight:900;color:#FFFFFF;line-height:0.9;pointer-events:none;z-index:2;">
-    {% if words.size > 1 %}
-      {% for word in words offset: 1 %}{{ word }}{% unless forloop.last %} {% endunless %}{% endfor %}
-    {% endif %}
-  </div>
-
-  {% comment %} CTA Block {% endcomment %}
   <div style="position:absolute;bottom:60px;left:40px;z-index:10;">
-    <p style="font-size:11px;letter-spacing:0.2em;color:rgba(255,255,255,0.5);text-transform:uppercase;margin:0 0 16px;font-family:'Geist',sans-serif;">Built for Performance</p>
+    <p style="font-size:11px;letter-spacing:0.2em;color:rgba(255,255,255,0.5);text-transform:uppercase;margin:0 0 16px;">Built for Performance</p>
     <div style="display:flex;gap:12px;align-items:center;flex-wrap:wrap;">
-      <a href="{{ section.settings.cta_link | default: '/collections/all' }}" style="background:#FF4500;color:#fff;text-decoration:none;padding:16px 40px;border-radius:100px;font-size:13px;font-weight:700;letter-spacing:0.05em;text-transform:uppercase;font-family:'Geist',sans-serif;display:inline-block;transition:transform 0.2s ease,box-shadow 0.2s ease;">
-        {{ section.settings.cta_text | default: 'Shop Now' }} →
-      </a>
-      <a href="{{ section.settings.secondary_link | default: '/pages/our-story' }}" style="border:1px solid rgba(255,255,255,0.3);color:#fff;text-decoration:none;padding:15px 32px;border-radius:100px;font-size:13px;font-family:'Geist',sans-serif;background:transparent;display:inline-block;transition:border-color 0.2s ease,background 0.2s ease;">
-        {{ section.settings.secondary_text | default: 'Our Story' }}
-      </a>
+      <a href="/collections/all" style="background:#FF4500;color:#fff;text-decoration:none;padding:16px 40px;border-radius:100px;font-size:13px;font-weight:700;letter-spacing:0.05em;text-transform:uppercase;font-family:'Geist',sans-serif;">Shop Now →</a>
+      <a href="/pages/our-story" style="border:1px solid rgba(255,255,255,0.3);color:#fff;text-decoration:none;padding:15px 32px;border-radius:100px;font-size:13px;font-family:'Geist',sans-serif;background:transparent;">Our Story</a>
     </div>
   </div>
 
 </section>
 
-<style>
-  .shopify-section--main-banner a:hover {
-    transform: translateY(-2px);
-  }
-  .shopify-section--main-banner a:first-child:hover {
-    box-shadow: 0 8px 24px rgba(255,69,0,0.4);
-  }
-  .shopify-section--main-banner a:last-child:hover {
-    border-color: rgba(255,255,255,0.6);
-    background: rgba(255,255,255,0.05);
-  }
-</style>
-
 {% schema %}
 {
-  "name": "Main Banner",
+  "name": "Banner Hero",
   "tag": "section",
-  "class": "shopify-section--main-banner",
+  "class": "section",
   "settings": [
     {
       "type": "image_picker",
@@ -83,34 +51,13 @@
       "id": "heading",
       "label": "Heading",
       "default": "TRAIN HARDER"
-    },
-    {
-      "type": "text",
-      "id": "cta_text",
-      "label": "Primary button text",
-      "default": "Shop Now"
-    },
-    {
-      "type": "url",
-      "id": "cta_link",
-      "label": "Primary button link"
-    },
-    {
-      "type": "text",
-      "id": "secondary_text",
-      "label": "Secondary button text",
-      "default": "Our Story"
-    },
-    {
-      "type": "url",
-      "id": "secondary_link",
-      "label": "Secondary button link"
     }
   ],
   "presets": [
     {
-      "name": "Main Banner"
+      "name": "Banner Hero"
     }
   ]
 }
 {% endschema %}
+```
