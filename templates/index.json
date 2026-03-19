@@ -27,7 +27,7 @@
         "text": {
           "type": "text",
           "settings": {
-            "text": "performance · athletic · bold — made for Athletes and fitness enthusiasts aged 20-35.",
+            "text": "bold · technical · energetic — made for Serious athletes and fitness enthusiasts aged.",
             "text_style": "subtitle"
           }
         },
@@ -55,7 +55,7 @@
         "text": {
           "type": "text",
           "settings": {
-            "text": "<p><strong>Performance  ·  Athletic  ·  Bold  ·  Sport</strong></p>"
+            "text": "<p><strong>Bold  ·  Technical  ·  Energetic</strong></p>"
           }
         }
       },
@@ -124,22 +124,22 @@
         "col_1": {
           "type": "column",
           "settings": {
-            "title": "Performance",
-            "text": "APEX Performance starts with performance as the foundation for everything we do."
+            "title": "Bold",
+            "text": "APEX Performance starts with bold as the foundation for everything we do."
           }
         },
         "col_2": {
           "type": "column",
           "settings": {
-            "title": "Athletic",
-            "text": "Every sport product is built with athletic at the centre."
+            "title": "Technical",
+            "text": "Every sport product is built with technical at the centre."
           }
         },
         "col_3": {
           "type": "column",
           "settings": {
-            "title": "Bold",
-            "text": "bold matters. We don't ship anything we wouldn't keep for ourselves."
+            "title": "Energetic",
+            "text": "energetic matters. We don't ship anything we wouldn't keep for ourselves."
           }
         }
       },
@@ -170,7 +170,7 @@
       "settings": {
         "title": "Top Performers",
         "heading_size": "h2",
-        "description": "<p>Our best-selling sport — made with performance.</p>",
+        "description": "<p>Our best-selling sport — made with bold.</p>",
         "show_description": true,
         "description_style": "subtitle",
         "collection": "all",
@@ -206,7 +206,7 @@
         "text": {
           "type": "text",
           "settings": {
-            "text": "<p>APEX Performance was built on a simple idea: performance and athletic shouldn't be mutually exclusive. Read about how we got here.</p>",
+            "text": "<p>APEX Performance was built on a simple idea: bold and technical shouldn't be mutually exclusive. Read about how we got here.</p>",
             "text_style": "body"
           }
         },
@@ -237,6 +237,90 @@
         "mobile_content_alignment": "left",
         "padding_top": 64,
         "padding_bottom": 64
+      }
+    },
+    "editorial_story_2": {
+      "type": "image-with-text",
+      "blocks": {
+        "heading": {
+          "type": "heading",
+          "settings": {
+            "heading": "Recovery Is Part of the Work.",
+            "heading_size": "h2"
+          }
+        },
+        "text": {
+          "type": "text",
+          "settings": {
+            "text": "<p>Energetic design doesn't happen by accident. Every decision at APEX Performance starts with the question: does this make it better?</p>",
+            "text_style": "body"
+          }
+        }
+      },
+      "block_order": [
+        "heading",
+        "text"
+      ],
+      "settings": {
+        "height": "medium",
+        "desktop_image_width": "medium",
+        "layout": "text_first",
+        "desktop_content_position": "middle",
+        "desktop_content_alignment": "left",
+        "content_layout": "no-overlap",
+        "color_scheme": "scheme-4",
+        "section_color_scheme": "scheme-4",
+        "image_behavior": "none",
+        "mobile_content_alignment": "left",
+        "padding_top": 64,
+        "padding_bottom": 64
+      }
+    },
+    "brand_values_cols": {
+      "type": "multicolumn",
+      "blocks": {
+        "val_1": {
+          "type": "column",
+          "settings": {
+            "title": "Bold",
+            "text": "We don't cut corners. Bold is the baseline, not the exception."
+          }
+        },
+        "val_2": {
+          "type": "column",
+          "settings": {
+            "title": "Technical",
+            "text": "Every piece reflects the attention that APEX Performance puts into its work."
+          }
+        },
+        "val_3": {
+          "type": "column",
+          "settings": {
+            "title": "Energetic",
+            "text": "Purpose-led from the first sketch. Nothing ships without reason."
+          }
+        }
+      },
+      "block_order": [
+        "val_1",
+        "val_2",
+        "val_3"
+      ],
+      "settings": {
+        "title": "What APEX Performance Stands For",
+        "heading_size": "h2",
+        "image_width": "third",
+        "image_ratio": "adapt",
+        "columns_desktop": 3,
+        "column_alignment": "left",
+        "background_style": "none",
+        "button_label": "",
+        "button_link": "",
+        "color_scheme": "scheme-3",
+        "columns_mobile": "1",
+        "swipe_on_mobile": false,
+        "padding_top": 72,
+        "padding_bottom": 72
       }
     },
     "social_proof": {
@@ -305,6 +389,8 @@
     "forge_features",
     "featured_collection",
     "brand_story",
+    "editorial_story_2",
+    "brand_values_cols",
     "social_proof",
     "newsletter"
   ]
