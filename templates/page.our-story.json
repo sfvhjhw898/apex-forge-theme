@@ -13,7 +13,7 @@
         "text": {
           "type": "text",
           "settings": {
-            "text": "<p>APEX Performance is a sport & fitness brand with a bold technical energetic aesthetic.</p>",
+            "text": "<p>Performance sportswear engineered for serious athletes.</p>",
             "text_style": "body"
           }
         }
@@ -43,21 +43,21 @@
         "col_1": {
           "type": "column",
           "settings": {
-            "title": "performance",
-            "text": "We put performance first in every decision we make."
+            "title": "bold",
+            "text": "We put bold first in every decision we make."
           }
         },
         "col_2": {
           "type": "column",
           "settings": {
-            "title": "athletic",
-            "text": "athletic is not a buzzword for us — it's how we work."
+            "title": "technical",
+            "text": "technical is not a buzzword for us — it's how we work."
           }
         },
         "col_3": {
           "type": "column",
           "settings": {
-            "title": "bold",
+            "title": "energetic",
             "text": "We are transparent about how we make things and who we make them for."
           }
         }
@@ -86,7 +86,7 @@
         "heading": {
           "type": "heading",
           "settings": {
-            "heading": "\"Premium sport & fitness with a bold design philosophy.\"",
+            "heading": "\"Performance · Technical · Durable · British Made\"",
             "heading_size": "h2"
           }
         }
