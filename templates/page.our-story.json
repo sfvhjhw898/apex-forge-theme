@@ -13,7 +13,7 @@
         "text": {
           "type": "text",
           "settings": {
-            "text": "<p>Performance sportswear engineered for serious athletes.</p>",
+            "text": "<p>High-performance sport and fitness apparel. Bold, aggressive, built for athletes who push limits.</p>",
             "text_style": "body"
           }
         }
@@ -43,21 +43,21 @@
         "col_1": {
           "type": "column",
           "settings": {
-            "title": "bold",
-            "text": "We put bold first in every decision we make."
+            "title": "performance",
+            "text": "We put performance first in every decision we make."
           }
         },
         "col_2": {
           "type": "column",
           "settings": {
-            "title": "technical",
-            "text": "technical is not a buzzword for us — it's how we work."
+            "title": "athletic",
+            "text": "athletic is not a buzzword for us — it's how we work."
           }
         },
         "col_3": {
           "type": "column",
           "settings": {
-            "title": "energetic",
+            "title": "bold",
             "text": "We are transparent about how we make things and who we make them for."
           }
         }
@@ -86,7 +86,7 @@
         "heading": {
           "type": "heading",
           "settings": {
-            "heading": "\"Performance · Technical · Durable · British Made\"",
+            "heading": "\"Engineering-led performance wear built for elite training.\"",
             "heading_size": "h2"
           }
         }
