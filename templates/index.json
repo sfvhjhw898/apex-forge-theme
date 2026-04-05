@@ -1,10 +1,10 @@
 {
   "sections": {
     "forge_hero": {
-      "type": "main-banner",
+      "type": "forge-scroll-hero",
       "settings": {
         "heading": "TRAIN HARDER.",
-        "subheading": "performance · athletic · bold — made for Serious athletes and fitness enthusiasts aged.",
+        "subheading": "Bold \u00b7 technical \u00b7 energetic \u2014 made for serious athletes and fitness enthusiasts.",
         "scroll_hint": "Scroll to explore",
         "button_label_1": "Shop Performance",
         "button_link_1": "shopify://collections/all",
@@ -12,12 +12,64 @@
         "button_link_2": "shopify://pages/our-story"
       }
     },
+    "forge_marquee": {
+      "type": "forge-marquee",
+      "settings": {
+        "speed": 25
+      },
+      "blocks": {
+        "p1": {
+          "type": "phrase",
+          "settings": {
+            "phrase": "Train Harder"
+          }
+        },
+        "p2": {
+          "type": "phrase",
+          "settings": {
+            "phrase": "Recover Faster"
+          }
+        },
+        "p3": {
+          "type": "phrase",
+          "settings": {
+            "phrase": "APEX Performance"
+          }
+        },
+        "p4": {
+          "type": "phrase",
+          "settings": {
+            "phrase": "Free UK Shipping"
+          }
+        },
+        "p5": {
+          "type": "phrase",
+          "settings": {
+            "phrase": "New Season"
+          }
+        },
+        "p6": {
+          "type": "phrase",
+          "settings": {
+            "phrase": "Built for Athletes"
+          }
+        }
+      },
+      "block_order": [
+        "p1",
+        "p2",
+        "p3",
+        "p4",
+        "p5",
+        "p6"
+      ]
+    },
     "featured_collection": {
       "type": "featured-collection",
       "settings": {
         "title": "Top Performers",
         "heading_size": "h2",
-        "description": "<p>Our best-selling sport — made with performance.</p>",
+        "description": "<p>Our best-selling performance gear \u2014 made with bold, technical fabrics.</p>",
         "show_description": true,
         "description_style": "subtitle",
         "collection": "all",
@@ -40,65 +92,18 @@
         "padding_bottom": 56
       }
     },
-    "forge_ticker": {
-      "type": "forge-ticker-section",
-      "blocks": {
-        "item_0": {
-          "type": "item",
-          "settings": {
-            "text": "Free UK Shipping"
-          }
-        },
-        "item_1": {
-          "type": "item",
-          "settings": {
-            "text": "New Season"
-          }
-        },
-        "item_2": {
-          "type": "item",
-          "settings": {
-            "text": "Performance Engineered"
-          }
-        },
-        "item_3": {
-          "type": "item",
-          "settings": {
-            "text": "Shop APEX PERFORMANCE"
-          }
-        },
-        "item_4": {
-          "type": "item",
-          "settings": {
-            "text": "Limited Stock"
-          }
-        }
-      },
-      "block_order": [
-        "item_0",
-        "item_1",
-        "item_2",
-        "item_3",
-        "item_4"
-      ],
-      "settings": {
-        "color_scheme": "scheme-4",
-        "speed": 80,
-        "direction": "ltr"
-      }
-    },
     "forge_bento": {
       "type": "forge-bento",
       "settings": {
         "heading": "Built Different",
-        "subheading": "APEX Performance — performance, athletic, bold.",
+        "subheading": "APEX Performance \u2014 bold, technical, energetic.",
         "story_link": "shopify://pages/our-story",
         "padding_top": 72,
         "padding_bottom": 72,
         "cell_1_eyebrow": "The Performance Edge",
         "cell_1_heading": "Engineered for Serious Athletes.",
         "cell_1_body": "APEX garments are built from technical fabrics that perform at the highest level. Every cut, seam, and material is optimised for movement, endurance, and recovery.",
-        "cell_1_cta": "See the Technology →",
+        "cell_1_cta": "See the Technology \u2192",
         "cell_2_heading": "Four-Way Stretch",
         "cell_2_body": "Unrestricted movement in every direction. Train harder, recover faster.",
         "cell_3_stat": "IPX4",
@@ -114,6 +119,43 @@
         "pill_4": "Technical Guarantee"
       }
     },
+    "forge_process": {
+      "type": "forge-process",
+      "settings": {
+        "eyebrow": "The APEX Method",
+        "heading": "Gear built for the way you move.",
+        "padding_top": 80,
+        "padding_bottom": 80
+      },
+      "blocks": {
+        "s1": {
+          "type": "step",
+          "settings": {
+            "title": "Choose Your Discipline",
+            "body": "From endurance running to strength training, every APEX piece is engineered for a specific purpose. Find your fit."
+          }
+        },
+        "s2": {
+          "type": "step",
+          "settings": {
+            "title": "Train in APEX",
+            "body": "Technical fabrics, ergonomic cuts, and zero restriction \u2014 from warmup through to your personal best."
+          }
+        },
+        "s3": {
+          "type": "step",
+          "settings": {
+            "title": "Outperform Your Best",
+            "body": "APEX athletes report faster recovery and higher output. Built to perform \u2014 wash after wash, session after session."
+          }
+        }
+      },
+      "block_order": [
+        "s1",
+        "s2",
+        "s3"
+      ]
+    },
     "forge_collections": {
       "type": "forge-collection-cards",
       "blocks": {
@@ -121,7 +163,7 @@
           "type": "collection_card",
           "settings": {
             "fallback_title": "Performance Gear",
-            "tagline": "Explore our performance gear — the latest from APEX Performance."
+            "tagline": "Explore our performance gear \u2014 the latest from APEX Performance."
           }
         },
         "card_2": {
@@ -148,9 +190,49 @@
         "heading": "Shop the Range",
         "subheading": "Explore everything APEX Performance has to offer.",
         "color_scheme": "scheme-3",
-        "padding_top": 72,
+        "padding_top": 0,
         "padding_bottom": 72
       }
+    },
+    "forge_testimonials": {
+      "type": "forge-testimonials",
+      "settings": {
+        "eyebrow": "Athlete Reviews",
+        "heading": "From the field.",
+        "padding_top": 72,
+        "padding_bottom": 72
+      },
+      "blocks": {
+        "t1": {
+          "type": "testimonial",
+          "settings": {
+            "quote": "I switched to APEX 18 months ago. My recovery times are noticeably better and the fit is unlike anything else I've worn.",
+            "name": "D. Okafor",
+            "role": "Marathon Runner \u00b7 London"
+          }
+        },
+        "t2": {
+          "type": "testimonial",
+          "settings": {
+            "quote": "The fabric is genuinely technical. Stays dry, moves with you, and still looks sharp after 200 sessions.",
+            "name": "L. Petrov",
+            "role": "CrossFit Coach \u00b7 Manchester"
+          }
+        },
+        "t3": {
+          "type": "testimonial",
+          "settings": {
+            "quote": "My whole gym has switched to APEX. The quality speaks for itself \u2014 and it looks the part too.",
+            "name": "R. Hassan",
+            "role": "Personal Trainer \u00b7 Birmingham"
+          }
+        }
+      },
+      "block_order": [
+        "t1",
+        "t2",
+        "t3"
+      ]
     },
     "newsletter": {
       "type": "newsletter",
@@ -183,10 +265,12 @@
   },
   "order": [
     "forge_hero",
+    "forge_marquee",
     "featured_collection",
-    "forge_ticker",
     "forge_bento",
+    "forge_process",
     "forge_collections",
+    "forge_testimonials",
     "newsletter"
   ]
 }
