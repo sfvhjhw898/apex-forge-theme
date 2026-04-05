@@ -1,10 +1,10 @@
 {
   "sections": {
     "forge_hero": {
-      "type": "forge-scroll-hero",
+      "type": "main-banner",
       "settings": {
         "heading": "TRAIN HARDER.",
-        "subheading": "performance · athletic · bold — made for Athletes and serious fitness enthusiasts aged.",
+        "subheading": "performance · athletic · bold — made for Serious athletes and fitness enthusiasts aged.",
         "scroll_hint": "Scroll to explore",
         "button_label_1": "Shop Performance",
         "button_link_1": "shopify://collections/all",
@@ -40,26 +40,51 @@
         "padding_bottom": 56
       }
     },
-    "brand_values": {
-      "type": "rich-text",
+    "forge_ticker": {
+      "type": "forge-ticker-section",
       "blocks": {
-        "text": {
-          "type": "text",
+        "item_0": {
+          "type": "item",
           "settings": {
-            "text": "<p><strong>Performance  ·  Athletic  ·  Bold  ·  Technical</strong></p>"
+            "text": "Free UK Shipping"
+          }
+        },
+        "item_1": {
+          "type": "item",
+          "settings": {
+            "text": "New Season"
+          }
+        },
+        "item_2": {
+          "type": "item",
+          "settings": {
+            "text": "Performance Engineered"
+          }
+        },
+        "item_3": {
+          "type": "item",
+          "settings": {
+            "text": "Shop APEX PERFORMANCE"
+          }
+        },
+        "item_4": {
+          "type": "item",
+          "settings": {
+            "text": "Limited Stock"
           }
         }
       },
       "block_order": [
-        "text"
+        "item_0",
+        "item_1",
+        "item_2",
+        "item_3",
+        "item_4"
       ],
       "settings": {
-        "desktop_content_position": "center",
-        "content_alignment": "center",
         "color_scheme": "scheme-4",
-        "full_width": true,
-        "padding_top": 24,
-        "padding_bottom": 24
+        "speed": 80,
+        "direction": "ltr"
       }
     },
     "forge_bento": {
@@ -159,7 +184,7 @@
   "order": [
     "forge_hero",
     "featured_collection",
-    "brand_values",
+    "forge_ticker",
     "forge_bento",
     "forge_collections",
     "newsletter"
