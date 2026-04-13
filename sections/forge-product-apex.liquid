@@ -1,0 +1,245 @@
+{%- assign cv = product.selected_or_first_available_variant -%}
+
+<div class="ap-wrap">
+
+  <div class="ap-left">
+    <a class="ap-back" href="{{ routes.collections_url }}">&#8592; Back</a>
+    <p class="ap-eyebrow">{{ product.type | default: 'Performance Gear' }}</p>
+    <h1 class="ap-title">{{ product.title | upcase }}</h1>
+    <p class="ap-price">{{ cv.price | money }}</p>
+
+    {%- if product.description != blank -%}
+      <div class="ap-meta">
+        {%- assign desc_parts = product.description | split: '<br>' -%}
+        {%- for part in desc_parts limit: 4 -%}
+          {%- assign stripped = part | strip_html | strip -%}
+          {%- if stripped != blank -%}
+            <div class="ap-meta__row">
+              <span class="ap-meta__dot"></span>
+              <span>{{ stripped }}</span>
+            </div>
+          {%- endif -%}
+        {%- endfor -%}
+      </div>
+    {%- endif -%}
+
+    {%- form 'product', product, id: 'ap-form' -%}
+      {%- for option in product.options_with_values -%}
+        <div class="ap-opt">
+          <p class="ap-opt__label">{{ option.name }}</p>
+          <div class="ap-pills">
+            {%- for value in option.values -%}
+              <label class="ap-pill">
+                <input type="radio" name="option[{{ option.position }}]" value="{{ value }}"
+                  {% if option.selected_value == value %}checked{% endif %}>
+                <span>{{ value }}</span>
+              </label>
+            {%- endfor -%}
+          </div>
+        </div>
+      {%- endfor -%}
+      <input type="hidden" name="id" value="{{ cv.id }}">
+      <div class="ap-cta">
+        <span class="ap-cta__price">{{ cv.price | money }}</span>
+        <button type="submit" name="add" class="ap-btn">
+          Add to Cart &#9654;
+        </button>
+      </div>
+    {%- endform -%}
+  </div>
+
+  <div class="ap-right">
+    {%- if product.featured_image -%}
+      <img id="ap-hero"
+        src="{{ product.featured_image | image_url: width: 1400 }}"
+        alt="{{ product.featured_image.alt | escape }}"
+        loading="eager" width="1400" height="1750" class="ap-img">
+    {%- else -%}
+      {{ 'product-2' | placeholder_svg_tag: 'ap-img' }}
+    {%- endif -%}
+    {%- if product.images.size > 1 -%}
+      <div class="ap-img-dots">
+        {%- for image in product.images limit: 5 -%}
+          <button class="ap-dot{% if forloop.first %} ap-dot--active{% endif %}"
+            data-src="{{ image | image_url: width: 1400 }}" type="button"
+            aria-label="Image {{ forloop.index }}"></button>
+        {%- endfor -%}
+      </div>
+    {%- endif -%}
+  </div>
+
+</div>
+
+<style>
+* { box-sizing: border-box; }
+.ap-wrap {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  min-height: 100vh;
+  background: #fff;
+}
+.ap-left {
+  padding: 60px 56px;
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+  justify-content: center;
+}
+.ap-back {
+  font-size: 11px;
+  letter-spacing: .12em;
+  text-transform: uppercase;
+  text-decoration: none;
+  color: #999;
+  align-self: flex-start;
+  transition: color .2s;
+}
+.ap-back:hover { color: #111; }
+.ap-eyebrow {
+  font-size: 11px;
+  letter-spacing: .18em;
+  text-transform: uppercase;
+  color: #c00;
+  margin: 0;
+}
+.ap-title {
+  font-family: 'Arial Black', 'Impact', sans-serif;
+  font-size: clamp(40px, 5vw, 72px);
+  font-weight: 900;
+  line-height: .95;
+  letter-spacing: -.02em;
+  margin: 0;
+  color: #0a0a0a;
+}
+.ap-price {
+  font-size: 32px;
+  font-weight: 700;
+  color: #0a0a0a;
+  margin: 0;
+}
+.ap-meta { display: flex; flex-direction: column; gap: 6px; padding-top: 4px; }
+.ap-meta__row {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  font-size: 12px;
+  color: #555;
+  text-transform: uppercase;
+  letter-spacing: .1em;
+}
+.ap-meta__dot {
+  width: 6px; height: 6px;
+  background: #c00;
+  border-radius: 50%;
+  flex-shrink: 0;
+}
+.ap-opt { }
+.ap-opt__label {
+  font-size: 10px;
+  letter-spacing: .15em;
+  text-transform: uppercase;
+  color: #888;
+  margin: 0 0 10px;
+  font-weight: 700;
+}
+.ap-pills { display: flex; gap: 6px; flex-wrap: wrap; }
+.ap-pill input { display: none; }
+.ap-pill span {
+  display: block;
+  padding: 8px 18px;
+  border: 2px solid #ddd;
+  font-size: 12px;
+  font-weight: 700;
+  letter-spacing: .08em;
+  text-transform: uppercase;
+  cursor: pointer;
+  transition: all .15s;
+}
+.ap-pill input:checked + span {
+  background: #0a0a0a;
+  color: #fff;
+  border-color: #0a0a0a;
+}
+.ap-pill span:hover { border-color: #0a0a0a; }
+.ap-cta {
+  display: flex;
+  align-items: center;
+  gap: 20px;
+  margin-top: 8px;
+}
+.ap-cta__price {
+  font-size: 22px;
+  font-weight: 700;
+  color: #0a0a0a;
+}
+.ap-btn {
+  flex: 1;
+  padding: 16px 24px;
+  background: #0a0a0a;
+  color: #fff;
+  border: none;
+  font-size: 13px;
+  font-weight: 700;
+  letter-spacing: .12em;
+  text-transform: uppercase;
+  cursor: pointer;
+  transition: background .2s;
+}
+.ap-btn:hover { background: #c00; }
+.ap-right {
+  position: relative;
+  overflow: hidden;
+  background: #0a0a0a;
+}
+.ap-img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  object-position: center top;
+  display: block;
+  opacity: .9;
+}
+.ap-img-dots {
+  position: absolute;
+  bottom: 28px;
+  right: 24px;
+  display: flex;
+  gap: 8px;
+}
+.ap-dot {
+  width: 8px; height: 8px;
+  border-radius: 50%;
+  background: rgba(255,255,255,.4);
+  border: none;
+  cursor: pointer;
+  transition: background .2s;
+}
+.ap-dot--active { background: #fff; }
+@media (max-width: 768px) {
+  .ap-wrap { grid-template-columns: 1fr; }
+  .ap-right { height: 60vw; }
+  .ap-left { padding: 40px 28px; }
+  .ap-title { font-size: 36px; }
+}
+</style>
+
+<script>
+(function(){
+  var hero = document.getElementById('ap-hero');
+  document.querySelectorAll('.ap-dot').forEach(function(btn){
+    btn.addEventListener('click', function(){
+      if (hero) hero.src = this.dataset.src;
+      document.querySelectorAll('.ap-dot').forEach(function(b){ b.classList.remove('ap-dot--active'); });
+      this.classList.add('ap-dot--active');
+    });
+  });
+})();
+</script>
+
+{% schema %}
+{
+  "name": "APEX Product",
+  "tag": "section",
+  "class": "forge-product-apex"
+}
+{% endschema %}
