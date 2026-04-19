@@ -1,10 +1,76 @@
 {% comment %}
-  APEX Performance — Main Banner
-  Full-viewport kinetic hero with diagonal brand name reveal
+  APEX PERFORMANCE — KINETIC FULL-VIEWPORT HERO
+  Diagonal brand name reveal, aggressive red accents, athletic energy
 {% endcomment %}
 
+<section class="forge-apex-hero" data-section-id="{{ section.id }}">
+  <div class="apex-hero__container">
+    
+    {%- comment -%} DIAGONAL BRAND NAME — OUTLINE VERSION {%- endcomment -%}
+    <div class="apex-ghost" aria-hidden="true">
+      APEX
+    </div>
+
+    {%- comment -%} DIAGONAL BRAND NAME — FILLED VERSION (reveals via clip-path) {%- endcomment -%}
+    <div class="apex-fill" aria-hidden="true">
+      APEX
+    </div>
+
+    {%- comment -%} DIAGONAL RED ACCENT LINES {%- endcomment -%}
+    <div class="apex-line apex-line--1" aria-hidden="true"></div>
+    <div class="apex-line apex-line--2" aria-hidden="true"></div>
+    <div class="apex-line apex-line--3" aria-hidden="true"></div>
+
+    {%- comment -%} HERO IMAGE — RIGHT 45% WITH DIAGONAL CLIP {%- endcomment -%}
+    {%- if section.settings.image != blank -%}
+      <div class="apex-hero__media">
+        {{
+          section.settings.image
+          | image_url: width: 1920
+          | image_tag:
+            loading: 'eager',
+            fetchpriority: 'high',
+            width: section.settings.image.width,
+            height: section.settings.image.height,
+            alt: section.settings.image.alt | escape,
+            class: 'apex-hero__image',
+            data-forge-parallax: '0.3'
+        }}
+      </div>
+    {%- else -%}
+      <div class="apex-hero__media apex-hero__media--placeholder">
+        {{ 'lifestyle-1' | placeholder_svg_tag: 'apex-hero__placeholder' }}
+      </div>
+    {%- endif -%}
+
+    {%- comment -%} HEADLINE BLOCK — BOTTOM LEFT {%- endcomment -%}
+    <div class="apex-hero__content">
+      {%- if section.settings.subheading != blank -%}
+        <p class="apex-hero__eyebrow">{{ section.settings.subheading }}</p>
+      {%- endif -%}
+
+      {%- if section.settings.heading != blank -%}
+        <h1 class="apex-hero__heading" data-forge-split="chars" data-forge-split-anim="wave">
+          {{ section.settings.heading }}
+        </h1>
+      {%- endif -%}
+
+      {%- if section.settings.button_label != blank and section.settings.button_link != blank -%}
+        <a 
+          href="{{ section.settings.button_link }}" 
+          class="apex-hero__cta"
+          data-forge-magnet="0.5"
+        >
+          {{ section.settings.button_label }}
+        </a>
+      {%- endif -%}
+    </div>
+
+  </div>
+</section>
+
 <style>
-  .apex-hero {
+  .forge-apex-hero {
     position: relative;
     width: 100%;
     height: 100vh;
@@ -13,36 +79,49 @@
     overflow: hidden;
   }
 
-  .apex-brand-layer {
+  .apex-hero__container {
+    position: relative;
+    width: 100%;
+    height: 100%;
+  }
+
+  /* ══════════════════════════════════════
+     DIAGONAL BRAND NAME — OUTLINE
+     ══════════════════════════════════════ */
+  .apex-ghost {
     position: absolute;
     top: -5%;
     left: -3%;
     z-index: 1;
-    pointer-events: none;
-    user-select: none;
-  }
-
-  .apex-ghost,
-  .apex-fill {
     font-family: Geist, -apple-system, BlinkMacSystemFont, sans-serif;
     font-weight: 900;
     font-size: clamp(12rem, 20vw, 22rem);
     line-height: 0.85;
-    transform: rotate(-5deg);
-    white-space: nowrap;
-  }
-
-  .apex-ghost {
     -webkit-text-stroke: 2px rgba(255, 255, 255, 0.08);
     color: transparent;
+    transform: rotate(-5deg);
+    pointer-events: none;
+    user-select: none;
+    text-transform: uppercase;
   }
 
+  /* ══════════════════════════════════════
+     DIAGONAL BRAND NAME — FILLED (REVEALS)
+     ══════════════════════════════════════ */
   .apex-fill {
     position: absolute;
-    top: 0;
-    left: 0;
-    color: white;
+    top: -5%;
+    left: -3%;
     z-index: 2;
+    font-family: Geist, -apple-system, BlinkMacSystemFont, sans-serif;
+    font-weight: 900;
+    font-size: clamp(12rem, 20vw, 22rem);
+    line-height: 0.85;
+    color: white;
+    transform: rotate(-5deg);
+    pointer-events: none;
+    user-select: none;
+    text-transform: uppercase;
     clip-path: inset(0 100% 0 0);
     animation: apex-reveal 1.2s cubic-bezier(0.16, 1, 0.3, 1) 0.1s forwards;
   }
@@ -53,16 +132,10 @@
     }
   }
 
-  .apex-accent-lines {
-    position: absolute;
-    inset: 0;
-    z-index: 2;
-    pointer-events: none;
-  }
-
-  .apex-line-1,
-  .apex-line-2,
-  .apex-line-3 {
+  /* ══════════════════════════════════════
+     DIAGONAL RED ACCENT LINES
+     ══════════════════════════════════════ */
+  .apex-line {
     position: absolute;
     background: #FF4500;
     height: 3px;
@@ -71,21 +144,21 @@
     animation: apex-line-in 0.6s cubic-bezier(0.16, 1, 0.3, 1) forwards;
   }
 
-  .apex-line-1 {
+  .apex-line--1 {
     width: 120px;
     top: 30%;
     left: 2%;
     animation-delay: 0.3s;
   }
 
-  .apex-line-2 {
+  .apex-line--2 {
     width: 80px;
     top: 45%;
     left: 5%;
     animation-delay: 0.5s;
   }
 
-  .apex-line-3 {
+  .apex-line--3 {
     width: 200px;
     top: 60%;
     left: 0%;
@@ -98,6 +171,9 @@
     }
   }
 
+  /* ══════════════════════════════════════
+     HERO IMAGE — RIGHT 45% DIAGONAL CLIP
+     ══════════════════════════════════════ */
   .apex-hero__media {
     position: absolute;
     right: 0;
@@ -108,14 +184,26 @@
     clip-path: polygon(8% 0%, 100% 0%, 100% 100%, 0% 100%);
   }
 
-  .apex-hero__media img,
-  .apex-hero__media video {
+  .apex-hero__image {
     width: 100%;
     height: 100%;
     object-fit: cover;
     filter: grayscale(0.15) contrast(1.1);
   }
 
+  .apex-hero__media--placeholder {
+    background: #1A1A1A;
+  }
+
+  .apex-hero__placeholder {
+    width: 100%;
+    height: 100%;
+    opacity: 0.3;
+  }
+
+  /* ══════════════════════════════════════
+     HEADLINE BLOCK — BOTTOM LEFT
+     ══════════════════════════════════════ */
   .apex-hero__content {
     position: absolute;
     bottom: 60px;
@@ -143,6 +231,7 @@
     color: white;
     margin: 0.6rem 0 1.6rem;
     line-height: 1;
+    text-wrap: balance;
   }
 
   .apex-hero__cta {
@@ -153,8 +242,8 @@
     font-family: Geist, -apple-system, BlinkMacSystemFont, sans-serif;
     font-weight: 700;
     font-size: 16px;
-    border-radius: 100px;
     text-decoration: none;
+    border-radius: 100px;
     transition: all 0.2s ease;
   }
 
@@ -163,14 +252,15 @@
     transform: translateY(-2px);
   }
 
-  @media (max-width: 768px) {
-    .apex-hero {
-      min-height: 500px;
-    }
-
+  /* ══════════════════════════════════════
+     RESPONSIVE
+     ══════════════════════════════════════ */
+  @media screen and (max-width: 989px) {
     .apex-ghost,
     .apex-fill {
       font-size: clamp(8rem, 18vw, 12rem);
+      top: -3%;
+      left: -5%;
     }
 
     .apex-hero__media {
@@ -184,108 +274,72 @@
       max-width: 400px;
     }
 
-    .apex-hero__heading {
-      font-size: clamp(2.2rem, 8vw, 3rem);
-    }
-
-    .apex-line-1 {
+    .apex-line--1 {
       width: 80px;
     }
 
-    .apex-line-2 {
+    .apex-line--2 {
       width: 60px;
     }
 
-    .apex-line-3 {
+    .apex-line--3 {
       width: 140px;
     }
   }
 
-  @media (max-width: 480px) {
-    .apex-hero__content {
-      bottom: 30px;
-      left: 20px;
-      right: 20px;
-    }
-
-    .apex-hero__media {
-      width: 65%;
-      clip-path: polygon(20% 0%, 100% 0%, 100% 100%, 0% 100%);
+  @media screen and (max-width: 749px) {
+    .forge-apex-hero {
+      min-height: 500px;
     }
 
     .apex-ghost,
     .apex-fill {
       font-size: clamp(6rem, 16vw, 8rem);
-      top: -3%;
-      left: -5%;
+      top: 5%;
+      left: -8%;
+    }
+
+    .apex-hero__media {
+      width: 100%;
+      height: 50%;
+      top: auto;
+      bottom: 0;
+      clip-path: polygon(0% 20%, 100% 0%, 100% 100%, 0% 100%);
+    }
+
+    .apex-hero__content {
+      bottom: auto;
+      top: 50%;
+      left: 20px;
+      right: 20px;
+      max-width: none;
+    }
+
+    .apex-hero__heading {
+      font-size: clamp(2.4rem, 8vw, 3rem);
+    }
+
+    .apex-line {
+      display: none;
+    }
+  }
+
+  @media (prefers-reduced-motion: reduce) {
+    .apex-fill {
+      animation: none;
+      clip-path: inset(0 0% 0 0);
+    }
+
+    .apex-line {
+      animation: none;
+      opacity: 1;
     }
   }
 </style>
 
-<section class="apex-hero">
-  <div class="apex-brand-layer">
-    <div class="apex-ghost">APEX</div>
-    <div class="apex-fill">APEX</div>
-  </div>
-
-  <div class="apex-accent-lines">
-    <div class="apex-line-1"></div>
-    <div class="apex-line-2"></div>
-    <div class="apex-line-3"></div>
-  </div>
-
-  {% if section.settings.image != blank or section.settings.video_url != blank %}
-    <div class="apex-hero__media" data-forge-parallax="0.3">
-      {% if section.settings.video_url != blank %}
-        <video
-          autoplay
-          muted
-          loop
-          playsinline
-          loading="eager"
-          fetchpriority="high"
-        >
-          <source src="{{ section.settings.video_url }}" type="video/mp4">
-        </video>
-      {% elsif section.settings.image != blank %}
-        {{
-          section.settings.image
-          | image_url: width: 1920
-          | image_tag:
-            loading: 'eager',
-            fetchpriority: 'high',
-            widths: '375, 750, 1100, 1500, 1920',
-            sizes: '45vw',
-            alt: section.settings.image.alt | escape
-        }}
-      {% endif %}
-    </div>
-  {% endif %}
-
-  <div class="apex-hero__content">
-    {% if section.settings.eyebrow != blank %}
-      <div class="apex-hero__eyebrow">{{ section.settings.eyebrow }}</div>
-    {% endif %}
-
-    <h1 class="apex-hero__heading" data-forge-split="chars" data-forge-split-anim="wave">
-      {{ section.settings.heading | default: 'PERFORMANCE.' }}
-    </h1>
-
-    {% if section.settings.button_label != blank and section.settings.button_link != blank %}
-      <a
-        href="{{ section.settings.button_link }}"
-        class="apex-hero__cta"
-        data-forge-magnet="0.5"
-      >
-        {{ section.settings.button_label }}
-      </a>
-    {% endif %}
-  </div>
-</section>
-
 {% schema %}
 {
-  "name": "Main Banner",
+  "name": "Apex Hero",
   "tag": "section",
   "class": "section",
   "settings": [
@@ -296,13 +350,7 @@
     },
     {
       "type": "text",
-      "id": "video_url",
-      "label": "Video URL",
-      "info": "MP4 video URL. Overrides image if provided."
-    },
-    {
-      "type": "text",
-      "id": "eyebrow",
+      "id": "subheading",
       "label": "Eyebrow Text",
       "default": "BUILT FOR"
     },
@@ -322,11 +370,17 @@
       "type": "url",
       "id": "button_link",
       "label": "Button Link"
+    },
+    {
+      "type": "url",
+      "id": "video_url",
+      "label": "Video URL (optional)",
+      "info": "YouTube or Vimeo link for background video"
     }
   ],
   "presets": [
     {
-      "name": "Main Banner"
+      "name": "Apex Hero"
     }
   ]
 }

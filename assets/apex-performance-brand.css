@@ -5,28 +5,33 @@
 
 /* 1. CSS Custom Properties */
 :root {
-  --apex-performance-primary: #FF4500;
-  --apex-performance-primary-rgb: 255, 69, 0;
-  --apex-performance-secondary: #0A0A0A;
-  --apex-performance-accent: #0A0A0A;
-  --apex-performance-text: #FFFFFF;
-  --apex-performance-warm: #0A0A0A;
-  --apex-performance-obsidian: #0D0D0D;
-  --apex-performance-border: rgba(0, 0, 0, 0.08);
-  --apex-performance-glass: rgba(255, 255, 255, 0.72);
-  --apex-performance-glass-border: rgba(255, 255, 255, 0.45);
-  --apex-performance-glass-shadow: 0 8px 32px rgba(0, 0, 0, 0.06);
-  --forge-font-heading: 'Geist', Georgia, serif;
-  --forge-font-body: 'Geist', -apple-system, sans-serif;
-  --apex-performance-primary-pale: rgba(255, 69, 0, 0.08);
-  --apex-performance-primary-mid: rgba(255, 69, 0, 0.15);
-  --apex-performance-dark-bg: #0A0A0A;
-  --apex-performance-light-bg: #FAFAFA;
-  --apex-performance-warm-bg: #F5F5F5;
+  --apex-performance-primary:       #FF4500;
+  --apex-performance-primary-rgb:   255,69,0;
+  --apex-performance-secondary:     #0A0A0A;
+  --apex-performance-accent:        #0A0A0A;
+  --apex-performance-text:          #FFFFFF;
+  --apex-performance-warm:          #0A0A0A;
+  --apex-performance-obsidian:      #0D0D0D;
+  --apex-performance-border:        rgba(255,255,255,0.08);
+  --apex-performance-glass:         rgba(10,10,10,0.82);
+  --apex-performance-glass-border:  rgba(255,255,255,0.15);
+  --apex-performance-glass-shadow:  0 8px 32px rgba(0,0,0,0.4);
+  --forge-font-heading:         'Geist', -apple-system, BlinkMacSystemFont, sans-serif;
+  --forge-font-body:            'Geist', -apple-system, BlinkMacSystemFont, sans-serif;
+  --forge-section-padding:      clamp(5rem, 10vw, 8rem);
+  --forge-container-padding:    clamp(1.5rem, 4vw, 3rem);
+  --forge-border-radius-sm:     0.5rem;
+  --forge-border-radius-md:     1rem;
+  --forge-border-radius-lg:     2rem;
+  --forge-border-radius-pill:   100px;
+  --forge-transition-fast:      0.15s ease;
+  --forge-transition-base:      0.3s cubic-bezier(0.34,1.56,0.64,1);
+  --forge-transition-slow:      0.6s cubic-bezier(0.16,1,0.3,1);
 }
 
 /* 2. Typography Override — ALL Dawn heading selectors */
 h1, h2, h3, h4, h5, h6,
+.h1, .h2, .h3, .h4, .h5, .h6,
 .card__heading,
 .banner__heading,
 .featured-collection .title,
@@ -41,76 +46,75 @@ h1, h2, h3, h4, h5, h6,
 .product__title,
 .collection__title,
 .page-title,
-.article__title {
+.article__title,
+.blog__title {
   font-family: var(--forge-font-heading) !important;
   letter-spacing: 0.08em !important;
   text-transform: uppercase !important;
   font-weight: 900 !important;
   text-wrap: balance;
+  line-height: 1.05;
 }
 
-h1, .h1,
-.banner__heading,
-.hero__heading,
-.product__title h1 {
+h1, .h1 {
   font-size: clamp(3.2rem, 6vw + 0.5rem, 7rem) !important;
-  line-height: 1.05 !important;
   letter-spacing: 0.06em !important;
 }
 
-h2, .h2,
-.featured-collection .title,
-.section-header__heading,
-.image-with-text__heading {
+h2, .h2 {
   font-size: clamp(2.4rem, 4vw + 0.5rem, 5rem) !important;
-  line-height: 1.1 !important;
-  letter-spacing: 0.08em !important;
 }
 
-h3, .h3,
-.multicolumn-card__title,
-.card__heading {
+h3, .h3 {
+  font-size: clamp(1.8rem, 3vw + 0.3rem, 3.2rem) !important;
+}
+
+h4, .h4 {
   font-size: clamp(1.4rem, 2.5vw + 0.3rem, 2.4rem) !important;
-  line-height: 1.2 !important;
-  letter-spacing: 0.08em !important;
+}
+
+h5, .h5 {
+  font-size: clamp(1.2rem, 2vw + 0.2rem, 1.8rem) !important;
+}
+
+h6, .h6 {
+  font-size: clamp(1rem, 1.5vw + 0.2rem, 1.4rem) !important;
 }
 
 body,
-.body,
+.body-text,
 p,
-.card__information,
-.product__description,
+.card__text,
+.product__text,
 .rte {
   font-family: var(--forge-font-body) !important;
-  font-size: clamp(0.875rem, 1vw + 0.25rem, 1.125rem) !important;
-  line-height: 1.65 !important;
-  letter-spacing: 0.01em !important;
+  font-size: clamp(0.95rem, 1vw + 0.25rem, 1.15rem) !important;
+  line-height: 1.65;
+  letter-spacing: 0.01em;
 }
 
 .caption,
+.caption-with-letter-spacing,
 .label,
-.badge,
-.price {
+.badge {
   font-family: var(--forge-font-body) !important;
-  font-size: clamp(0.75rem, 0.9vw + 0.2rem, 0.95rem) !important;
-  text-transform: uppercase !important;
-  letter-spacing: 0.12em !important;
-  font-weight: 600 !important;
+  font-size: clamp(0.75rem, 0.9vw + 0.1rem, 0.95rem) !important;
+  text-transform: uppercase;
+  letter-spacing: 0.12em;
+  font-weight: 700;
 }
 
 /* 3. Glassmorphic Sticky Nav */
 .header-wrapper {
-  transition: all 300ms cubic-bezier(0.16, 1, 0.3, 1);
-  position: relative;
-  z-index: 100;
+  transition: all 0.3s ease, backdrop-filter 0.3s ease;
 }
 
 .shopify-section-header-sticky .header-wrapper {
+  background: rgba(10, 10, 10, 0.88) !important;
   backdrop-filter: blur(20px) saturate(180%);
   -webkit-backdrop-filter: blur(20px) saturate(180%);
-  background: rgba(10, 10, 10, 0.85) !important;
-  border-bottom: 1px solid rgba(255, 69, 0, 0.3);
-  box-shadow: 0 4px 24px rgba(0, 0, 0, 0.12);
+  border-bottom: 1px solid rgba(255, 255, 255, 0.12) !important;
+  box-shadow: 0 4px 24px rgba(0, 0, 0, 0.3);
 }
 
 .shopify-section-header-sticky .header__heading-link,
@@ -120,7 +124,7 @@ p,
 }
 
 /* 4. Pill Navigation — FULL CSS Grid Override */
-@media (min-width: 990px) {
+@media screen and (min-width: 990px) {
   .section-header .header {
     display: grid !important;
     grid-template-columns: 1fr auto 1fr !important;
@@ -149,53 +153,87 @@ p,
 }
 
 .header__inline-menu {
-  background: rgba(255, 69, 0, 0.93) !important;
-  border-radius: 100px !important;
-  padding: 0.3rem 0.5rem !important;
-  backdrop-filter: blur(20px) !important;
-  -webkit-backdrop-filter: blur(20px) !important;
-  box-shadow: 0 2px 28px rgba(0, 0, 0, 0.3), inset 0 1px 0 rgba(255, 255, 255, 0.12) !important;
-  border: none !important;
+  background: rgba(255, 69, 0, 0.95) !important;
+  border-radius: var(--forge-border-radius-pill) !important;
+  padding: 0.4rem 0.6rem !important;
+  backdrop-filter: blur(20px) saturate(150%);
+  -webkit-backdrop-filter: blur(20px) saturate(150%);
+  box-shadow: 0 2px 28px rgba(255, 69, 0, 0.4), 
+              inset 0 1px 0 rgba(255, 255, 255, 0.15),
+              0 8px 16px rgba(0, 0, 0, 0.2) !important;
+  border: 1px solid rgba(255, 255, 255, 0.1);
 }
 
 .header__menu-item {
   color: #FFFFFF !important;
   font-size: 1.35rem !important;
-  padding: 0.65rem 1.3rem !important;
-  border-radius: 100px !important;
+  font-weight: 700 !important;
+  padding: 0.7rem 1.4rem !important;
+  border-radius: var(--forge-border-radius-pill) !important;
   transition: background 0.2s ease, transform 0.15s ease !important;
-  font-weight: 600 !important;
-  text-transform: uppercase !important;
-  letter-spacing: 0.08em !important;
+  text-transform: uppercase;
+  letter-spacing: 0.08em;
 }
 
-.header__menu-item:hover {
-  background: rgba(255, 255, 255, 0.10) !important;
+.header__menu-item:hover,
+.header__menu-item:focus-visible {
+  background: rgba(255, 255, 255, 0.12) !important;
   transform: translateY(-1px);
 }
 
-.header__active-menu-item {
-  background: rgba(255, 255, 255, 0.15) !important;
+.header__menu-item.header__active-menu-item {
+  background: rgba(255, 255, 255, 0.18) !important;
+}
+
+@media screen and (max-width: 989px) {
+  .header__inline-menu {
+    background: transparent !important;
+    box-shadow: none !important;
+    backdrop-filter: none !important;
+    padding: 0 !important;
+  }
 }
 
 /* 5. Announcement Bar */
 .announcement-bar {
   background: var(--apex-performance-primary) !important;
   color: var(--apex-performance-text) !important;
-  height: 48px !important;
+  min-height: 48px !important;
   display: flex !important;
   align-items: center !important;
   justify-content: center !important;
-  border: none !important;
+  padding: 0.8rem 1.5rem;
+  position: relative;
+  overflow: hidden;
 }
 
 .announcement-bar__message {
   font-family: var(--forge-font-body) !important;
-  font-weight: 500 !important;
   font-size: 12px !important;
+  font-weight: 700 !important;
   text-transform: uppercase !important;
-  letter-spacing: 0.12em !important;
-  color: #FFFFFF !important;
+  letter-spacing: 0.14em !important;
+  color: var(--apex-performance-text) !important;
+  text-align: center;
+}
+
+.announcement-bar::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  height: 1px;
+  background: linear-gradient(90deg, 
+    transparent 0%, 
+    rgba(255, 255, 255, 0.3) 50%, 
+    transparent 100%);
+}
+
+.announcement-bar a {
+  color: inherit !important;
+  text-decoration: underline;
+  text-underline-offset: 3px;
 }
 
 /* 6. @keyframes — ALL 8 animation definitions */
@@ -249,7 +287,8 @@ p,
     box-shadow: 0 0 0 rgba(255, 69, 0, 0);
   }
   50% {
-    box-shadow: 0 0 40px rgba(255, 69, 0, 0.4);
+    box-shadow: 0 0 40px rgba(255, 69, 0, 0.6),
+                0 0 80px rgba(255, 69, 0, 0.3);
   }
 }
 
@@ -273,13 +312,32 @@ p,
   }
 }
 
+@keyframes forge-shimmer {
+  0% {
+    background-position: -1000px 0;
+  }
+  100% {
+    background-position: 1000px 0;
+  }
+}
+
+@keyframes forge-rotate {
+  from {
+    transform: rotate(0deg);
+  }
+  to {
+    transform: rotate(360deg);
+  }
+}
+
 /* 7. Scroll Reveal System — 4 types (FULL IMPLEMENTATION) */
 @media (prefers-reduced-motion: no-preference) {
   [data-reveal="masked"] {
     clip-path: inset(0 0 110% 0);
     opacity: 0;
     will-change: clip-path, opacity;
-    transition: clip-path 0.9s cubic-bezier(0.16, 1, 0.3, 1), opacity 0.5s ease;
+    transition: clip-path 0.9s cubic-bezier(0.16, 1, 0.3, 1),
+                opacity 0.5s ease;
   }
 
   [data-reveal="masked"].is-visible {
@@ -291,7 +349,8 @@ p,
     transform: translateY(40px);
     opacity: 0;
     will-change: transform, opacity;
-    transition: transform 0.75s cubic-bezier(0.16, 1, 0.3, 1), opacity 0.6s ease;
+    transition: transform 0.75s cubic-bezier(0.16, 1, 0.3, 1),
+                opacity 0.6s ease;
   }
 
   [data-reveal="slide-up"].is-visible {
@@ -307,7 +366,8 @@ p,
     transform: scale(1.08);
     opacity: 0;
     will-change: transform, opacity;
-    transition: transform 2s cubic-bezier(0.16, 1, 0.3, 1), opacity 0.8s ease;
+    transition: transform 2s cubic-bezier(0.16, 1, 0.3, 1),
+                opacity 0.8s ease;
   }
 
   [data-reveal="zoom"].is-visible img {
@@ -319,7 +379,13 @@ p,
     opacity: 0;
     transform: translateY(30px);
     will-change: opacity, transform;
-    transition: opacity 0.6s ease, transform 0.7s cubic-bezier(0.16, 1, 0.3, 1);
+    transition: opacity 0.6s ease,
+                transform 0.7s cubic-bezier(0.16, 1, 0.3, 1);
+  }
+
+  [data-reveal="stagger"].is-visible > * {
+    opacity: 1;
+    transform: translateY(0);
   }
 
   [data-reveal="stagger"].is-visible > *:nth-child(1) { transition-delay: 0s; }
@@ -332,11 +398,6 @@ p,
   [data-reveal="stagger"].is-visible > *:nth-child(8) { transition-delay: 0.7s; }
   [data-reveal="stagger"].is-visible > *:nth-child(9) { transition-delay: 0.8s; }
   [data-reveal="stagger"].is-visible > *:nth-child(10) { transition-delay: 0.9s; }
-
-  [data-reveal="stagger"].is-visible > * {
-    opacity: 1;
-    transform: translateY(0);
-  }
 
   [data-reveal-delay="100"] {
     transition-delay: 0.1s !important;
@@ -360,6 +421,20 @@ p,
 
   [data-reveal-delay="600"] {
     transition-delay: 0.6s !important;
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  [data-reveal] {
+    opacity: 1 !important;
+    transform: none !important;
+    clip-path: none !important;
+    transition: none !important;
+  }
+
+  [data-reveal] img {
+    transform: none !important;
+    opacity: 1 !important;
   }
 }
 
@@ -391,11 +466,13 @@ html.forge-intro-init.forge-intro-play .section-header {
 }
 
 html.forge-intro-init.forge-intro-play .fsh__media-wrap {
-  transition: opacity 0.55s ease 0.5s, transform 0.55s cubic-bezier(0.34, 1.56, 0.64, 1) 0.5s;
+  transition: opacity 0.55s ease 0.5s,
+              transform 0.55s cubic-bezier(0.34, 1.56, 0.64, 1) 0.5s;
 }
 
 html.forge-intro-init.forge-intro-play .fsh__titles {
-  transition: opacity 0.5s ease 0.9s, filter 0.5s ease 0.9s;
+  transition: opacity 0.5s ease 0.9s,
+              filter 0.5s ease 0.9s;
 }
 
 html.forge-intro-init.forge-intro-play .fsh__hint {
@@ -426,12 +503,14 @@ html.forge-intro-play .fsh__hint {
   background: #111111 !important;
   border-radius: 0 !important;
   overflow: hidden !important;
-  transition: transform 0.4s cubic-bezier(0.34, 1.56, 0.64, 1), box-shadow 0.3s ease;
+  transition: transform 0.4s cubic-bezier(0.34, 1.56, 0.64, 1),
+              box-shadow 0.3s ease;
 }
 
 .card-wrapper:hover {
   transform: translateY(-6px);
-  box-shadow: 0 24px 64px rgba(0, 0, 0, 0.2);
+  box-shadow: 0 24px 64px rgba(255, 69, 0, 0.3),
+              0 12px 32px rgba(0, 0, 0, 0.4);
 }
 
 .card-wrapper::before {
@@ -441,7 +520,7 @@ html.forge-intro-play .fsh__hint {
   left: 0 !important;
   width: 5px !important;
   height: 100% !important;
-  background: #FF4500 !important;
+  background: var(--apex-performance-primary) !important;
   transform: scaleY(0) !important;
   transform-origin: bottom !important;
   transition: transform 0.28s cubic-bezier(0.34, 1.56, 0.64, 1) !important;
@@ -454,10 +533,13 @@ html.forge-intro-play .fsh__hint {
 
 .card.card--standard {
   position: relative;
-  border-radius: 0;
+  border-radius: 0 !important;
   overflow: hidden;
   background: #111111;
-  border: none;
+}
+
+.card--media .media {
+  overflow: hidden;
 }
 
 .card--media .media img {
@@ -470,9 +552,9 @@ html.forge-intro-play .fsh__hint {
 
 .card__heading,
 .card__heading a {
-  font-family: 'Geist', 'Arial Black', sans-serif !important;
-  font-weight: 700 !important;
-  letter-spacing: 0.04em !important;
+  font-family: var(--forge-font-heading) !important;
+  font-weight: 900 !important;
+  letter-spacing: 0.08em !important;
   text-transform: uppercase !important;
   color: #FFFFFF !important;
   transition: color 0.2s ease !important;
@@ -480,160 +562,208 @@ html.forge-intro-play .fsh__hint {
 
 .card-wrapper:hover .card__heading,
 .card-wrapper:hover .card__heading a {
-  color: #FF4500 !important;
+  color: var(--apex-performance-primary) !important;
 }
 
 .card__information {
-  padding: 1.5rem;
+  padding: 1.5rem 1.2rem;
   background: #111111;
 }
 
 .price {
   color: rgba(255, 255, 255, 0.6) !important;
-  font-weight: 600 !important;
+  font-weight: 700;
+  letter-spacing: 0.05em;
+}
+
+.price__sale .price-item--regular {
+  color: rgba(255, 255, 255, 0.35) !important;
+}
+
+.price__sale .price-item--sale {
+  color: var(--apex-performance-primary) !important;
+}
+
+.card__badge {
+  background: var(--apex-performance-primary) !important;
+  color: var(--apex-performance-text) !important;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 0.1em;
+  padding: 0.4rem 0.8rem;
+  border-radius: 0;
 }
 
 /* 10. Product Card Reveal Overlay — DISABLED FOR APEX */
-/* APEX uses red bar + name color change instead */
+.forge-reveal {
+  display: none !important;
+}
 
 /* 11. Collection Cards */
-.collection-card {
-  border-radius: 2rem;
+.collection-card-wrapper {
+  border-radius: var(--forge-border-radius-lg);
   overflow: hidden;
-  transition: transform 0.4s cubic-bezier(0.34, 1.56, 0.64, 1), box-shadow 0.3s ease;
-  background: #0A0A0A;
+  transition: transform 0.4s cubic-bezier(0.34, 1.56, 0.64, 1),
+              box-shadow 0.3s ease;
+  background: #111111;
 }
 
-.collection-card:hover {
+.collection-card-wrapper:hover {
   transform: translateY(-8px);
-  box-shadow: 0 28px 72px rgba(0, 0, 0, 0.25);
+  box-shadow: 0 28px 72px rgba(255, 69, 0, 0.25),
+              0 14px 36px rgba(0, 0, 0, 0.4);
 }
 
-.collection-card__image-wrapper {
-  overflow: hidden;
+.card--card.card--media .card__inner {
+  background: #111111;
 }
 
-.collection-card__image {
-  transition: transform 0.6s ease;
-}
-
-.collection-card:hover .collection-card__image {
-  transform: scale(1.08);
+.card--card .card__content {
+  padding: 2rem 1.5rem;
 }
 
 .collection-card__title {
-  color: #FFFFFF;
-  padding: 2rem;
-  background: #0A0A0A;
+  color: #FFFFFF !important;
+  transition: color 0.2s ease;
+}
+
+.collection-card-wrapper:hover .collection-card__title {
+  color: var(--apex-performance-primary) !important;
 }
 
 /* 12. Cart Drawer */
-.cart-drawer {
+.drawer {
+  background: rgba(10, 10, 10, 0.96) !important;
   backdrop-filter: blur(24px) saturate(180%);
   -webkit-backdrop-filter: blur(24px) saturate(180%);
-  background: rgba(10, 10, 10, 0.95) !important;
-  border-left: 1px solid rgba(255, 69, 0, 0.2);
+  border-left: 1px solid rgba(255, 255, 255, 0.1);
+  color: #FFFFFF;
 }
 
-.cart-drawer__header {
+.drawer__header {
   border-bottom: 1px solid rgba(255, 255, 255, 0.1);
   padding: 2rem;
 }
 
-.cart-drawer__heading {
-  color: #FFFFFF;
-  font-size: 2rem;
-  text-transform: uppercase;
-  letter-spacing: 0.08em;
+.drawer__heading {
+  color: #FFFFFF !important;
+}
+
+.drawer__close {
+  color: #FFFFFF !important;
 }
 
 .cart-item {
   border-bottom: 1px solid rgba(255, 255, 255, 0.08);
-  padding: 1.5rem 2rem;
 }
 
-.cart-item__name {
+.cart-item__name,
+.cart-item__details,
+.cart-item__price-wrapper {
+  color: #FFFFFF !important;
+}
+
+.cart-item__totals .price {
+  color: var(--apex-performance-primary) !important;
+}
+
+.drawer__footer {
+  border-top: 1px solid rgba(255, 255, 255, 0.1);
+  background: rgba(0, 0, 0, 0.3);
+}
+
+.totals {
   color: #FFFFFF;
 }
 
-.cart-item__price {
-  color: rgba(255, 255, 255, 0.7);
+.cart-drawer__checkout {
+  background: var(--apex-performance-primary) !important;
+  color: var(--apex-performance-text) !important;
+  border-radius: var(--forge-border-radius-pill);
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 0.08em;
+  padding: 1.2rem 2rem;
+  transition: transform 0.15s ease, box-shadow 0.2s ease;
 }
 
-.cart-drawer__footer {
-  padding: 2rem;
-  background: rgba(0, 0, 0, 0.3);
-  border-top: 1px solid rgba(255, 255, 255, 0.1);
+.cart-drawer__checkout:hover {
+  transform: scale(1.02);
+  box-shadow: 0 8px 24px rgba(255, 69, 0, 0.4);
 }
 
 /* 13. Variant Selectors */
 .product-form__input {
-  display: flex;
-  flex-wrap: wrap;
-  gap: 0.8rem;
+  border-radius: var(--forge-border-radius-pill);
+  overflow: hidden;
 }
 
-.product-form__input input[type="radio"] {
-  position: absolute;
-  opacity: 0;
-  pointer-events: none;
-}
-
-.product-form__input label {
-  padding: 0.8rem 1.6rem;
+.product-form__input input[type="radio"] + label {
   border: 2px solid rgba(255, 255, 255, 0.2);
-  border-radius: 100px;
+  border-radius: var(--forge-border-radius-pill);
+  padding: 0.7rem 1.5rem;
   background: transparent;
   color: #FFFFFF;
-  cursor: pointer;
-  transition: all 0.2s ease;
-  font-weight: 600;
+  font-weight: 700;
   text-transform: uppercase;
-  letter-spacing: 0.08em;
-  font-size: 0.9rem;
-}
-
-.product-form__input label:hover {
-  border-color: rgba(255, 69, 0, 0.5);
-  background: rgba(255, 69, 0, 0.1);
+  letter-spacing: 0.06em;
+  transition: all 0.2s ease;
+  cursor: pointer;
 }
 
 .product-form__input input[type="radio"]:checked + label {
-  border-color: #FF4500;
-  background: #FF4500;
+  background: var(--apex-performance-primary) !important;
+  border-color: var(--apex-performance-primary) !important;
+  color: var(--apex-performance-text) !important;
+}
+
+.product-form__input input[type="radio"] + label:hover {
+  border-color: rgba(255, 69, 0, 0.6);
+  background: rgba(255, 69, 0, 0.1);
+}
+
+fieldset.product-form__input .form__label {
   color: #FFFFFF;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 0.1em;
+  font-size: 0.9rem;
+  margin-bottom: 0.8rem;
 }
 
 /* 14. Filter Chips */
 .facets__form {
-  display: flex;
-  flex-wrap: wrap;
-  gap: 0.8rem;
-  padding: 2rem 0;
+  background: transparent;
+  border: none;
 }
 
-.facet-checkbox {
-  padding: 0.7rem 1.4rem;
-  border: 2px solid rgba(0, 0, 0, 0.15);
-  border-radius: 100px;
-  background: #FFFFFF;
-  cursor: pointer;
-  transition: all 0.2s ease;
-  font-weight: 600;
-  text-transform: uppercase;
-  letter-spacing: 0.08em;
-  font-size: 0.85rem;
+.facet-filters {
+  border: none;
 }
 
-.facet-checkbox:hover {
-  border-color: #FF4500;
-  background: rgba(255, 69, 0, 0.05);
-}
-
-.facet-checkbox input[type="checkbox"]:checked ~ label {
-  border-color: #FF4500;
-  background: #FF4500;
+.facet-checkbox input[type="checkbox"] + label {
+  border: 2px solid rgba(255, 255, 255, 0.2);
+  border-radius: var(--forge-border-radius-pill);
+  padding: 0.6rem 1.2rem;
+  background: transparent;
   color: #FFFFFF;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 0.06em;
+  font-size: 0.85rem;
+  transition: all 0.2s ease;
+  cursor: pointer;
+}
+
+.facet-checkbox input[type="checkbox"]:checked + label {
+  background: var(--apex-performance-primary) !important;
+  border-color: var(--apex-performance-primary) !important;
+  color: var(--apex-performance-text) !important;
+}
+
+.facet-checkbox input[type="checkbox"] + label:hover {
+  border-color: rgba(255, 69, 0, 0.6);
+  background: rgba(255, 69, 0, 0.1);
 }
 
 .active-facets {
@@ -644,21 +774,21 @@ html.forge-intro-play .fsh__hint {
 }
 
 .active-facets__button {
-  padding: 0.6rem 1.2rem;
-  border-radius: 100px;
-  background: #FF4500;
-  color: #FFFFFF;
+  background: var(--apex-performance-primary);
+  color: var(--apex-performance-text);
   border: none;
-  cursor: pointer;
-  font-weight: 600;
+  border-radius: var(--forge-border-radius-pill);
+  padding: 0.5rem 1rem;
+  font-weight: 700;
   text-transform: uppercase;
-  letter-spacing: 0.08em;
+  letter-spacing: 0.06em;
   font-size: 0.8rem;
-  transition: background 0.2s ease;
+  cursor: pointer;
+  transition: transform 0.15s ease;
 }
 
 .active-facets__button:hover {
-  background: #E63E00;
+  transform: scale(0.95);
 }
 
 /* 15. Marquee Status Strip */
@@ -672,36 +802,37 @@ html.forge-intro-play .fsh__hint {
   position: relative;
 }
 
-.forge-marquee__inner {
-  display: flex;
-  width: 100%;
-}
-
 .forge-marquee__track {
   display: flex;
   align-items: center;
-  gap: 3rem;
   animation: forge-marquee 30s linear infinite;
   will-change: transform;
 }
 
-.forge-marquee__track:hover {
+.forge-marquee:hover .forge-marquee__track {
   animation-play-state: paused;
 }
 
 .forge-marquee__item {
-  font-family: 'Geist Mono', monospace;
-  font-weight: 500;
+  font-family: var(--forge-font-body);
   font-size: 12px;
+  font-weight: 700;
   text-transform: uppercase;
-  letter-spacing: 0.1em;
+  letter-spacing: 0.12em;
   white-space: nowrap;
-  color: #FFFFFF;
+  padding: 0 2rem;
+  display: flex;
+  align-items: center;
+  gap: 2rem;
 }
 
 .forge-marquee__separator {
-  color: rgba(255, 255, 255, 0.5);
-  margin: 0 1.5rem;
+  display: inline-block;
+  width: 4px;
+  height: 4px;
+  background: currentColor;
+  border-radius: 50%;
+  opacity: 0.6;
 }
 
 /* 16. Section Spacing */
@@ -710,55 +841,68 @@ html.forge-intro-play .fsh__hint {
   margin: 0;
 }
 
-.section-padding {
-  padding-top: clamp(80px, 10vw, 120px);
-  padding-bottom: clamp(80px, 10vw, 120px);
+.section {
+  padding-top: var(--forge-section-padding);
+  padding-bottom: var(--forge-section-padding);
+}
+
+.section--no-padding-top {
+  padding-top: 0 !important;
+}
+
+.section--no-padding-bottom {
+  padding-bottom: 0 !important;
 }
 
 .page-width {
   max-width: 1400px;
-  margin: 0 auto;
-  padding-left: clamp(1.5rem, 4vw, 3rem);
-  padding-right: clamp(1.5rem, 4vw, 3rem);
+  margin-left: auto;
+  margin-right: auto;
+  padding-left: var(--forge-container-padding);
+  padding-right: var(--forge-container-padding);
+}
+
+.page-width--narrow {
+  max-width: 1000px;
 }
 
 .section--dark {
-  background: var(--apex-performance-dark-bg);
+  background: var(--apex-performance-secondary);
   color: #FFFFFF;
-}
-
-.section--light {
-  background: var(--apex-performance-light-bg);
-  color: #0A0A0A;
-}
-
-.section--warm {
-  background: var(--apex-performance-warm-bg);
-  color: #0A0A0A;
 }
 
 .section--primary {
   background: var(--apex-performance-primary);
+  color: var(--apex-performance-text);
+}
+
+.section--warm {
+  background: var(--apex-performance-warm);
   color: #FFFFFF;
+}
+
+.section--light {
+  background: #F5F5F5;
+  color: var(--apex-performance-secondary);
 }
 
 /* 17. Bento Grid — FULL IMPLEMENTATION */
 .forge-bento {
-  padding: clamp(80px, 10vw, 120px) 0;
+  padding: var(--forge-section-padding) 0;
 }
 
 .forge-bento__grid {
   display: grid;
   grid-template-columns: repeat(3, 1fr);
   gap: 2px;
-  background: rgba(0, 0, 0, 0.1);
+  background: rgba(255, 255, 255, 0.05);
 }
 
 .forge-bento__cell {
   padding: 3rem;
   position: relative;
   overflow: hidden;
-  transition: transform 0.3s cubic-bezier(0.34, 1.56, 0.64, 1);
+  transition: transform 0.3s ease;
   min-height: 300px;
   display: flex;
   flex-direction: column;
@@ -780,60 +924,77 @@ html.forge-intro-play .fsh__hint {
 
 .forge-bento__cell--dark {
   background: var(--apex-performance-primary);
-  color: #FFFFFF;
+  color: var(--apex-performance-text);
 }
 
 .forge-bento__cell--light {
-  background: #FFFFFF;
-  color: #0A0A0A;
+  background: #F5F5F5;
+  color: var(--apex-performance-secondary);
 }
 
 .forge-bento__cell--warm {
-  background: var(--apex-performance-warm-bg);
-  color: #0A0A0A;
-}
-
-.forge-bento__cell--pale {
-  background: var(--apex-performance-primary-pale);
-  color: #0A0A0A;
-}
-
-.forge-bento__cell--stat {
-  background-image: radial-gradient(circle, rgba(255, 255, 255, 0.15) 1.5px, transparent 1.5px);
-  background-size: 20px 20px;
-  background-color: var(--apex-performance-primary);
+  background: var(--apex-performance-warm);
   color: #FFFFFF;
 }
 
-.forge-bento__cell-title {
-  font-size: clamp(1.8rem, 3vw, 3rem);
-  font-weight: 900;
-  text-transform: uppercase;
-  letter-spacing: 0.06em;
-  margin-bottom: 1rem;
+.forge-bento__cell--pale {
+  background: rgba(255, 69, 0, 0.08);
+  color: var(--apex-performance-secondary);
 }
 
-.forge-bento__cell-text {
-  font-size: 1.1rem;
-  line-height: 1.6;
-  opacity: 0.85;
+.forge-bento__cell--stat {
+  background: var(--apex-performance-secondary);
+  color: #FFFFFF;
+  background-image: radial-gradient(circle, rgba(255, 255, 255, 0.08) 1.5px, transparent 1.5px);
+  background-size: 20px 20px;
 }
 
-.forge-bento__cell-stat {
-  font-size: clamp(4rem, 8vw, 8rem);
-  font-weight: 900;
-  line-height: 1;
-  margin-bottom: 0.5rem;
+.forge-bento__cell-content {
+  position: relative;
+  z-index: 1;
 }
 
 .forge-bento__cell-label {
   font-size: 0.9rem;
   text-transform: uppercase;
   letter-spacing: 0.12em;
+  font-weight: 700;
+  margin-bottom: 1rem;
   opacity: 0.7;
 }
 
-@media (max-width: 990px) {
+.forge-bento__cell-title {
+  font-size: clamp(1.8rem, 3vw, 3.2rem);
+  font-weight: 900;
+  text-transform: uppercase;
+  letter-spacing: 0.06em;
+  line-height: 1.1;
+  margin-bottom: 1rem;
+}
+
+.forge-bento__cell-text {
+  font-size: 1.05rem;
+  line-height: 1.6;
+  opacity: 0.85;
+}
+
+.forge-bento__cell-stat {
+  font-size: clamp(4rem, 8vw, 7rem);
+  font-weight: 900;
+  line-height: 1;
+  margin-bottom: 0.5rem;
+  letter-spacing: 0.02em;
+}
+
+.forge-bento__cell-stat-label {
+  font-size: 1rem;
+  text-transform: uppercase;
+  letter-spacing: 0.1em;
+  font-weight: 700;
+  opacity: 0.7;
+}
+
+@media screen and (max-width: 989px) {
   .forge-bento__grid {
     grid-template-columns: 1fr;
     gap: 1px;
@@ -844,212 +1005,228 @@ html.forge-intro-play .fsh__hint {
     grid-column: auto;
     grid-row: auto;
   }
+
+  .forge-bento__cell {
+    padding: 2rem;
+    min-height: 250px;
+  }
 }
 
 /* 18. Editorial Our Story */
 .forge-story {
-  display: grid;
-  grid-template-columns: 1fr 1fr;
-  gap: 6rem;
-  padding: clamp(100px, 12vw, 140px) 0;
-  align-items: start;
+  padding: var(--forge-section-padding) 0;
 }
 
-.forge-story__portrait {
-  position: sticky;
-  top: 120px;
-  height: fit-content;
+.forge-story__section {
+  padding: clamp(4rem, 8vw, 8rem) 0;
 }
 
-.forge-story__portrait img {
-  width: 100%;
-  height: auto;
-  border-radius: 2rem;
-  object-fit: cover;
+.forge-story__section--dark {
+  background: var(--apex-performance-secondary);
+  color: #FFFFFF;
 }
 
-.forge-story__content {
-  padding-top: 2rem;
+.forge-story__section--light {
+  background: #F5F5F5;
+  color: var(--apex-performance-secondary);
 }
 
-.forge-story__number {
-  font-size: clamp(200px, 25vw, 280px);
+.forge-story__section--primary {
+  background: var(--apex-performance-primary);
+  color: var(--apex-performance-text);
+}
+
+.forge-story__outline-heading {
+  font-size: clamp(4rem, 10vw, 12rem);
   font-weight: 900;
-  line-height: 0.8;
+  text-transform: uppercase;
+  letter-spacing: 0.04em;
+  line-height: 0.9;
+  color: transparent;
   -webkit-text-stroke: 2px currentColor;
-  -webkit-text-fill-color: transparent;
-  opacity: 0.15;
-  margin-bottom: -80px;
-  pointer-events: none;
+  text-stroke: 2px currentColor;
+  margin-bottom: 2rem;
 }
 
-.forge-story__heading {
-  font-size: clamp(3rem, 5vw, 5.5rem);
+.forge-story__filled-heading {
+  font-size: clamp(3rem, 7vw, 8rem);
   font-weight: 900;
   text-transform: uppercase;
   letter-spacing: 0.06em;
+  line-height: 1;
   margin-bottom: 2rem;
 }
 
-.forge-story__heading--outline {
+.forge-story__number {
+  font-size: clamp(12rem, 20vw, 24rem);
+  font-weight: 900;
+  line-height: 0.8;
+  color: transparent;
   -webkit-text-stroke: 2px currentColor;
-  -webkit-text-fill-color: transparent;
+  text-stroke: 2px currentColor;
+  position: absolute;
+  top: -2rem;
+  right: 0;
+  opacity: 0.15;
+  pointer-events: none;
 }
 
-.forge-story__text {
-  font-size: clamp(1.1rem, 1.5vw, 1.3rem);
-  line-height: 1.7;
-  margin-bottom: 2rem;
+.forge-story__founder {
+  display: grid;
+  grid-template-columns: 400px 1fr;
+  gap: 4rem;
+  align-items: start;
+  position: relative;
 }
 
-.forge-story__quote {
-  font-size: clamp(1.4rem, 2vw, 1.8rem);
-  font-style: italic;
-  line-height: 1.5;
-  padding-left: 2rem;
-  border-left: 4px solid var(--apex-performance-primary);
-  margin: 3rem 0;
+.forge-story__founder-portrait {
+  position: sticky;
+  top: 120px;
+  border-radius: var(--forge-border-radius-lg);
+  overflow: hidden;
 }
 
-@media (max-width: 990px) {
-  .forge-story {
-    grid-template-columns: 1fr;
-    gap: 3rem;
-  }
-
-  .forge-story__portrait {
-    position: relative;
-    top: 0;
-  }
+.forge-story__founder-portrait img {
+  width: 100%;
+  height: auto;
+  display: block;
 }
 
-.forge-image-strip {
+.forge-story__founder-content {
+  padding-top: 2rem;
+}
+
+.forge-story__founder-content p {
+  font-size: 1.15rem;
+  line-height: 1.75;
+  margin-bottom: 1.5rem;
+}
+
+.forge-story__image-strip {
   display: grid;
   grid-template-columns: repeat(3, 1fr);
   gap: 2rem;
-  padding: clamp(80px, 10vw, 120px) 0;
+  margin: 4rem 0;
 }
 
-.forge-image-strip__col {
-  display: flex;
-  flex-direction: column;
-  gap: 2rem;
+.forge-story__image-strip-item {
+  border-radius: var(--forge-border-radius-lg);
+  overflow: hidden;
 }
 
-.forge-image-strip__col:nth-child(2) {
-  margin-top: 4rem;
+.forge-story__image-strip-item:nth-child(1) {
+  transform: translateY(0);
 }
 
-.forge-image-strip__col:nth-child(3) {
-  margin-top: 8rem;
+.forge-story__image-strip-item:nth-child(2) {
+  transform: translateY(3rem);
 }
 
-.forge-image-strip__img {
+.forge-story__image-strip-item:nth-child(3) {
+  transform: translateY(1.5rem);
+}
+
+.forge-story__image-strip-item img {
   width: 100%;
-  height: auto;
-  border-radius: 1.5rem;
+  height: 100%;
   object-fit: cover;
+  display: block;
 }
 
-@media (max-width: 768px) {
-  .forge-image-strip {
+@media screen and (max-width: 989px) {
+  .forge-story__founder {
     grid-template-columns: 1fr;
+    gap: 2rem;
   }
 
-  .forge-image-strip__col:nth-child(2),
-  .forge-image-strip__col:nth-child(3) {
-    margin-top: 0;
+  .forge-story__founder-portrait {
+    position: relative;
+    top: 0;
+  }
+
+  .forge-story__image-strip {
+    grid-template-columns: 1fr;
+    gap: 1.5rem;
+  }
+
+  .forge-story__image-strip-item {
+    transform: none !important;
   }
 }
 
 /* 19. Footer */
 .footer {
   background: var(--apex-performance-primary) !important;
-  color: #FFFFFF !important;
-  padding: clamp(60px, 8vw, 100px) 0 clamp(40px, 6vw, 60px) !important;
-  border-top: none !important;
+  color: var(--apex-performance-text) !important;
+  padding: clamp(3rem, 6vw, 5rem) 0 2rem;
 }
 
 .footer__content-top {
-  display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
-  gap: 3rem;
-  margin-bottom: 4rem;
+  padding-bottom: 3rem;
+  border-bottom: 1px solid rgba(255, 255, 255, 0.2);
+  margin-bottom: 3rem;
 }
 
 .footer-block__heading {
-  color: #FFFFFF !important;
-  font-size: 1.2rem !important;
-  margin-bottom: 1.5rem !important;
-  text-transform: uppercase !important;
-  letter-spacing: 0.08em !important;
+  color: var(--apex-performance-text) !important;
+  font-size: 1.1rem;
+  margin-bottom: 1.5rem;
 }
 
 .footer-block__details-content {
-  display: flex;
-  flex-direction: column;
-  gap: 0.8rem;
+  color: var(--apex-performance-text) !important;
 }
 
 .footer-block__details-content a {
-  color: rgba(255, 255, 255, 0.8) !important;
+  color: var(--apex-performance-text) !important;
   text-decoration: none;
-  transition: color 0.2s ease;
+  transition: opacity 0.2s ease;
 }
 
 .footer-block__details-content a:hover {
-  color: #FFFFFF !important;
+  opacity: 0.7;
 }
 
 .footer__newsletter {
   max-width: 500px;
 }
 
-.newsletter-form__field-wrapper {
-  position: relative;
-}
-
-.newsletter-form__field-wrapper input {
-  width: 100%;
-  padding: 1.2rem 0;
+.footer__newsletter .field__input {
   background: transparent;
   border: none;
   border-bottom: 2px solid rgba(255, 255, 255, 0.3);
-  color: #FFFFFF;
-  font-size: 1.1rem;
-  transition: border-color 0.2s ease;
+  border-radius: 0;
+  color: var(--apex-performance-text);
+  padding: 1rem 0;
+  font-size: 1.05rem;
 }
 
-.newsletter-form__field-wrapper input:focus {
-  outline: none;
-  border-bottom-color: #FFFFFF;
-}
-
-.newsletter-form__field-wrapper input::placeholder {
+.footer__newsletter .field__input::placeholder {
   color: rgba(255, 255, 255, 0.5);
 }
 
-.newsletter-form__button {
-  margin-top: 1rem;
-  padding: 1rem 2.5rem;
-  background: #FFFFFF;
-  color: var(--apex-performance-primary);
-  border: none;
-  border-radius: 100px;
+.footer__newsletter .field__input:focus {
+  border-bottom-color: rgba(255, 255, 255, 0.8);
+}
+
+.footer__newsletter .newsletter-form__button {
+  background: rgba(255, 255, 255, 0.15);
+  color: var(--apex-performance-text);
+  border: 2px solid rgba(255, 255, 255, 0.3);
+  border-radius: var(--forge-border-radius-pill);
+  padding: 0.8rem 2rem;
   font-weight: 700;
   text-transform: uppercase;
   letter-spacing: 0.08em;
-  cursor: pointer;
-  transition: transform 0.2s ease;
+  transition: all 0.2s ease;
 }
 
-.newsletter-form__button:hover {
-  transform: scale(1.05);
+.footer__newsletter .newsletter-form__button:hover {
+  background: rgba(255, 255, 255, 0.25);
+  border-color: rgba(255, 255, 255, 0.6);
 }
 
 .footer__content-bottom {
-  padding-top: 3rem;
-  border-top: 1px solid rgba(255, 255, 255, 0.2);
   display: flex;
   justify-content: space-between;
   align-items: center;
@@ -1062,136 +1239,113 @@ html.forge-intro-play .fsh__hint {
   font-size: 0.9rem;
 }
 
+.footer__payment {
+  display: flex;
+  gap: 0.5rem;
+}
+
 /* 20. Product Page */
 .product {
-  display: grid;
-  grid-template-columns: 1fr 1fr;
-  gap: 4rem;
-  padding: clamp(60px, 8vw, 100px) 0;
-}
-
-.product__media-wrapper {
-  position: sticky;
-  top: 120px;
-  height: fit-content;
-}
-
-.product__media-list {
-  display: grid;
-  gap: 1.5rem;
-}
-
-.product__media-item img {
-  width: 100%;
-  height: auto;
-  border-radius: 1.5rem;
+  padding: var(--forge-section-padding) 0;
 }
 
 .product__info-wrapper {
-  padding-top: 2rem;
+  position: sticky;
+  top: 120px;
+  align-self: start;
 }
 
 .product__title {
-  font-size: clamp(2.5rem, 4vw, 4rem);
-  margin-bottom: 1.5rem;
-  color: #0A0A0A;
-}
-
-.product__price {
-  font-size: 2rem;
-  font-weight: 700;
-  color: var(--apex-performance-primary);
-  margin-bottom: 2rem;
+  color: #FFFFFF;
+  margin-bottom: 1rem;
 }
 
 .product__description {
-  font-size: 1.1rem;
+  font-size: 1.05rem;
   line-height: 1.7;
-  margin-bottom: 3rem;
-  color: rgba(10, 10, 10, 0.8);
+  color: rgba(255, 255, 255, 0.8);
+  margin-bottom: 2rem;
+}
+
+.product__description p {
+  margin-bottom: 1rem;
 }
 
 .product-form__submit {
   width: 100%;
-  padding: 1.4rem 2rem;
-  background: var(--apex-performance-primary);
-  color: #FFFFFF;
+  background: var(--apex-performance-primary) !important;
+  color: var(--apex-performance-text) !important;
   border: none;
-  border-radius: 100px;
-  font-size: 1.2rem;
+  border-radius: var(--forge-border-radius-pill);
+  padding: 1.2rem 2rem;
+  font-size: 1.15rem;
   font-weight: 700;
   text-transform: uppercase;
   letter-spacing: 0.08em;
   cursor: pointer;
-  transition: transform 0.2s ease, box-shadow 0.2s ease;
+  transition: transform 0.15s ease, box-shadow 0.2s ease;
 }
 
 .product-form__submit:hover {
-  transform: translateY(-2px);
-  box-shadow: 0 8px 24px rgba(255, 69, 0, 0.3);
+  transform: scale(1.02);
+  box-shadow: 0 8px 24px rgba(255, 69, 0, 0.4);
 }
 
-@media (max-width: 990px) {
-  .product {
-    grid-template-columns: 1fr;
-    gap: 2rem;
-  }
+.product-form__submit:active {
+  transform: scale(0.98);
+}
 
-  .product__media-wrapper {
-    position: relative;
-    top: 0;
-  }
+.product__media-wrapper {
+  border-radius: var(--forge-border-radius-lg);
+  overflow: hidden;
+}
+
+.product__media-item {
+  border-radius: var(--forge-border-radius-lg);
+  overflow: hidden;
+  margin-bottom: 1rem;
+}
+
+.price--large {
+  font-size: 2rem;
+  font-weight: 900;
+  color: var(--apex-performance-primary);
+  letter-spacing: 0.04em;
 }
 
 /* 21. Collection Page */
-.collection-hero {
-  padding: clamp(100px, 12vw, 140px) 0 clamp(60px, 8vw, 80px);
+.collection {
+  padding: var(--forge-section-padding) 0;
+}
+
+.collection__title {
+  font-size: clamp(3rem, 6vw, 6rem);
   text-align: center;
-  background: var(--apex-performance-dark-bg);
+  margin-bottom: 3rem;
   color: #FFFFFF;
 }
 
-.collection-hero__title {
-  font-size: clamp(4rem, 8vw, 8rem);
-  font-weight: 900;
-  text-transform: uppercase;
-  letter-spacing: 0.06em;
-  margin-bottom: 1.5rem;
-}
-
-.collection-hero__description {
-  font-size: clamp(1.1rem, 1.5vw, 1.3rem);
-  max-width: 700px;
-  margin: 0 auto;
-  line-height: 1.6;
-  opacity: 0.85;
+.collection__description {
+  max-width: 800px;
+  margin: 0 auto 4rem;
+  text-align: center;
+  font-size: 1.15rem;
+  line-height: 1.7;
+  color: rgba(255, 255, 255, 0.8);
 }
 
 .facets-container {
-  position: sticky;
-  top: 80px;
-  z-index: 10;
-  background: #FFFFFF;
-  padding: 1.5rem 0;
-  border-bottom: 1px solid rgba(0, 0, 0, 0.1);
   margin-bottom: 3rem;
 }
 
 .facets-wrapper {
   display: flex;
   align-items: center;
-  gap: 1rem;
-  overflow-x: auto;
-  scrollbar-width: none;
-  -ms-overflow-style: none;
-}
-
-.facets-wrapper::-webkit-scrollbar {
-  display: none;
-}
-
-.product-grid-container {
-  padding: 2rem 0 clamp(80px, 10vw, 120px);
+  justify-content: space-between;
+  padding: 1.5rem;
+  background: rgba(255, 255, 255, 0.03);
+  border-radius: var(--forge-border-radius-lg);
+  border: 1px solid rgba(255, 255, 255, 0.08);
 }
 
 .product-grid {
@@ -1200,7 +1354,7 @@ html.forge-intro-play .fsh__hint {
   gap: 2rem;
 }
 
-@media (max-width: 768px) {
+@media screen and (max-width: 749px) {
   .product-grid {
     grid-template-columns: repeat(2, 1fr);
     gap: 1rem;
@@ -1210,93 +1364,106 @@ html.forge-intro-play .fsh__hint {
 /* 22. Buttons */
 .button,
 .shopify-payment-button__button,
-button[type="submit"] {
-  padding: 1.2rem 2.5rem;
-  border-radius: 100px;
+button[type="submit"],
+input[type="submit"] {
+  border-radius: var(--forge-border-radius-pill);
   font-family: var(--forge-font-body);
   font-weight: 700;
   text-transform: uppercase;
   letter-spacing: 0.08em;
-  font-size: 1rem;
+  transition: transform 0.15s ease, box-shadow 0.2s ease;
   cursor: pointer;
-  transition: transform 0.2s ease, box-shadow 0.2s ease;
-  border: none;
   display: inline-flex;
   align-items: center;
   justify-content: center;
-  gap: 0.8rem;
+  gap: 0.5rem;
+  padding: 1rem 2rem;
+  font-size: 1rem;
 }
 
 .button--primary {
-  background: var(--apex-performance-primary);
-  color: #FFFFFF;
+  background: var(--apex-performance-primary) !important;
+  color: var(--apex-performance-text) !important;
+  border: none;
 }
 
 .button--primary:hover {
-  transform: translateY(-2px);
-  box-shadow: 0 8px 24px rgba(255, 69, 0, 0.3);
+  transform: scale(1.02);
+  box-shadow: 0 8px 24px rgba(255, 69, 0, 0.4);
 }
 
 .button--secondary {
+  background: transparent;
+  color: #FFFFFF;
+  border: 2px solid rgba(255, 255, 255, 0.3);
+}
+
+.button--secondary:hover {
+  border-color: rgba(255, 255, 255, 0.6);
+  background: rgba(255, 255, 255, 0.05);
+}
+
+.button--tertiary {
   background: transparent;
   color: var(--apex-performance-primary);
   border: 2px solid var(--apex-performance-primary);
 }
 
-.button--secondary:hover {
-  background: var(--apex-performance-primary);
-  color: #FFFFFF;
-  transform: translateY(-2px);
-}
-
-.button--tertiary {
-  background: #0A0A0A;
-  color: #FFFFFF;
-}
-
 .button--tertiary:hover {
-  transform: translateY(-2px);
-  box-shadow: 0 8px 24px rgba(10, 10, 10, 0.3);
+  background: var(--apex-performance-primary);
+  color: var(--apex-performance-text);
 }
 
-.button--full-width {
-  width: 100%;
+.button:active {
+  transform: scale(0.98);
 }
 
 /* 23. Mobile Enhancements */
-@media (max-width: 749px) {
-  .header__icon,
-  .header__menu-item,
-  button,
+@media screen and (max-width: 749px) {
   .button,
+  .product-form__submit,
+  .cart-drawer__checkout,
   a[role="button"] {
     min-height: 44px;
+    padding: 0.8rem 1.5rem;
+  }
+
+  .header__icon {
     min-width: 44px;
+    min-height: 44px;
   }
 
   .cart-drawer {
-    width: 100vw;
+    width: 100% !important;
+    max-width: 100% !important;
   }
 
   .product-grid {
     grid-template-columns: repeat(2, 1fr);
+    gap: 1rem;
   }
 
-  .header__inline-menu {
-    display: none;
+  .card__information {
+    padding: 1rem 0.8rem;
   }
 
-  .header__icons {
-    justify-self: start !important;
+  .card__heading {
+    font-size: 0.9rem;
   }
 
-  .header__heading-link {
-    justify-self: center !important;
-    grid-column: 2 !important;
+  .forge-bento__cell {
+    padding: 1.5rem;
+    min-height: 200px;
   }
 
-  .section-header .header {
-    grid-template-columns: auto 1fr auto !important;
+  .forge-story__outline-heading {
+    font-size: clamp(3rem, 12vw, 6rem);
+    -webkit-text-stroke: 1.5px currentColor;
+  }
+
+  .forge-story__number {
+    font-size: clamp(8rem, 25vw, 12rem);
+    -webkit-text-stroke: 1.5px currentColor;
   }
 }
 
@@ -1307,17 +1474,21 @@ button[type="submit"] {
   -webkit-backdrop-filter: blur(24px) saturate(180%);
   border: 1px solid var(--apex-performance-glass-border);
   box-shadow: var(--apex-performance-glass-shadow);
-  border-radius: 1.5rem;
+}
+
+.glass-panel--light {
+  background: rgba(255, 255, 255, 0.72);
+  border: 1px solid rgba(255, 255, 255, 0.45);
 }
 
 .glass-panel--dark {
-  background: rgba(10, 10, 10, 0.85);
-  border-color: rgba(255, 255, 255, 0.1);
+  background: rgba(10, 10, 10, 0.82);
+  border: 1px solid rgba(255, 255, 255, 0.1);
 }
 
 .glass-panel--primary {
   background: rgba(255, 69, 0, 0.85);
-  border-color: rgba(255, 255, 255, 0.2);
+  border: 1px solid rgba(255, 255, 255, 0.2);
 }
 
 /* 25. Focus & Accessibility */
@@ -1326,31 +1497,30 @@ button[type="submit"] {
   outline-offset: 3px;
 }
 
-.skip-to-content-link {
-  position: absolute;
-  top: -100px;
-  left: 0;
-  background: var(--apex-performance-primary);
-  color: #FFFFFF;
-  padding: 1rem 2rem;
-  z-index: 9999;
-  transition: top 0.2s ease;
-}
-
 .skip-to-content-link:focus {
-  top: 0;
+  clip: auto;
+  overflow: auto;
+  position: static;
+  height: auto;
+  width: auto;
 }
 
 .visually-hidden {
   position: absolute !important;
-  width: 1px !important;
-  height: 1px !important;
-  padding: 0 !important;
-  margin: -1px !important;
-  overflow: hidden !important;
-  clip: rect(0, 0, 0, 0) !important;
-  white-space: nowrap !important;
-  border: 0 !important;
+  overflow: hidden;
+  width: 1px;
+  height: 1px;
+  margin: -1px;
+  padding: 0;
+  border: 0;
+  clip: rect(0 0 0 0);
+  word-wrap: normal !important;
+}
+
+button:disabled,
+input:disabled {
+  opacity: 0.5;
+  cursor: not-allowed;
 }
 
 @media (prefers-reduced-motion: reduce) {
@@ -1360,6 +1530,7 @@ button[type="submit"] {
     animation-duration: 0.01ms !important;
     animation-iteration-count: 1 !important;
     transition-duration: 0.01ms !important;
+    scroll-behavior: auto !important;
   }
 }
 
@@ -1385,10 +1556,9 @@ button[type="submit"] {
   scroll-snap-align: start;
   width: 80vw;
   max-width: 360px;
-  border-radius: 1.5rem;
+  border-radius: var(--forge-border-radius-lg);
   overflow: hidden;
-  background: #FFFFFF;
-  box-shadow: 0 4px 24px rgba(0, 0, 0, 0.08);
+  background: #111111;
   transition: transform 0.3s ease;
 }
 
@@ -1398,8 +1568,9 @@ button[type="submit"] {
 
 .forge-hscroll__item img {
   width: 100%;
-  height: 280px;
+  height: 400px;
   object-fit: cover;
+  display: block;
 }
 
 .forge-hscroll__item-content {
@@ -1408,16 +1579,17 @@ button[type="submit"] {
 
 .forge-hscroll__item-title {
   font-size: 1.3rem;
-  font-weight: 700;
+  font-weight: 900;
   text-transform: uppercase;
   letter-spacing: 0.06em;
-  margin-bottom: 0.8rem;
+  color: #FFFFFF;
+  margin-bottom: 0.5rem;
 }
 
 .forge-hscroll__item-text {
   font-size: 0.95rem;
-  line-height: 1.5;
-  color: rgba(10, 10, 10, 0.7);
+  line-height: 1.6;
+  color: rgba(255, 255, 255, 0.7);
 }
 
 /* 27. Grain Texture Overlay */
@@ -1430,7 +1602,7 @@ button[type="submit"] {
   position: absolute;
   inset: 0;
   pointer-events: none;
-  background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.65' numOctaves='3'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)' opacity='0.06'/%3E%3C/svg%3E");
+  background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='100%25' height='100%25'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.65' numOctaves='3'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)' opacity='0.06'/%3E%3C/svg%3E");
   mix-blend-mode: overlay;
   z-index: 1;
   opacity: 0.6;
@@ -1457,22 +1629,22 @@ button[type="submit"] {
 
 .forge-stat__number {
   font-family: var(--forge-font-heading);
-  font-size: clamp(4rem, 8vw, 8rem);
+  font-size: clamp(4rem, 8vw + 1rem, 8rem);
   font-weight: 900;
   line-height: 1;
+  letter-spacing: 0.02em;
   color: var(--apex-performance-primary);
+  display: block;
   margin-bottom: 0.5rem;
-  text-transform: uppercase;
-  letter-spacing: 0.04em;
 }
 
 .forge-stat__label {
   font-size: 1.2rem;
   text-transform: uppercase;
-  letter-spacing: 0.1em;
-  color: rgba(10, 10, 10, 0.6);
+  letter-spacing: 0.12em;
+  font-weight: 700;
+  color: rgba(255, 255, 255, 0.6);
   margin-top: 0.5rem;
-  font-weight: 600;
 }
 
 .forge-stats--dark .forge-stat__number {
@@ -1480,13 +1652,21 @@ button[type="submit"] {
 }
 
 .forge-stats--dark .forge-stat__label {
-  color: rgba(255, 255, 255, 0.6);
+  color: rgba(255, 255, 255, 0.5);
 }
 
-@media (max-width: 768px) {
+.forge-stats--light .forge-stat__number {
+  color: var(--apex-performance-primary);
+}
+
+.forge-stats--light .forge-stat__label {
+  color: rgba(0, 0, 0, 0.5);
+}
+
+@media screen and (max-width: 749px) {
   .forge-stats {
-    gap: 3rem;
-    padding: 4rem 0;
+    gap: 2rem;
+    padding: 3rem 0;
   }
 
   .forge-stat {
@@ -1497,7 +1677,7 @@ button[type="submit"] {
 /* 29. Image Text Overlap — editorial asymmetric layout */
 .forge-overlap {
   position: relative;
-  padding: clamp(80px, 10vw, 120px) 0;
+  padding: 6rem 0;
   overflow: hidden;
 }
 
@@ -1508,7 +1688,7 @@ button[type="submit"] {
   width: 55%;
   height: 120%;
   object-fit: cover;
-  border-radius: 2rem 0 0 2rem;
+  border-radius: var(--forge-border-radius-lg) 0 0 var(--forge-border-radius-lg);
 }
 
 .forge-overlap__text {
@@ -1518,43 +1698,22 @@ button[type="submit"] {
   max-width: 100%;
 }
 
-.forge-overlap__heading {
-  font-size: clamp(3rem, 5vw, 5.5rem);
-  font-weight: 900;
-  text-transform: uppercase;
-  letter-spacing: 0.06em;
+.forge-overlap__text h2 {
+  font-size: clamp(2.5rem, 5vw, 5rem);
   margin-bottom: 2rem;
-  line-height: 1.1;
 }
 
-.forge-overlap__body {
-  font-size: clamp(1.1rem, 1.5vw, 1.3rem);
-  line-height: 1.7;
-  margin-bottom: 2.5rem;
-}
-
-.forge-overlap__cta {
-  display: inline-flex;
-}
-
-@media (max-width: 990px) {
-  .forge-overlap__img {
-    position: relative;
-    width: 100%;
-    height: 400px;
-    border-radius: 2rem;
-    margin-bottom: 3rem;
-  }
-
-  .forge-overlap__text {
-    padding-right: 0;
-  }
+.forge-overlap__text p {
+  font-size: 1.15rem;
+  line-height: 1.75;
+  margin-bottom: 1.5rem;
+  color: rgba(255, 255, 255, 0.85);
 }
 
 .forge-overlap--reverse .forge-overlap__img {
-  right: auto;
   left: 0;
-  border-radius: 0 2rem 2rem 0;
+  right: auto;
+  border-radius: 0 var(--forge-border-radius-lg) var(--forge-border-radius-lg) 0;
 }
 
 .forge-overlap--reverse .forge-overlap__text {
@@ -1562,88 +1721,138 @@ button[type="submit"] {
   padding-left: 50%;
 }
 
-@media (max-width: 990px) {
+@media screen and (max-width: 989px) {
+  .forge-overlap__img {
+    position: relative;
+    width: 100%;
+    height: 400px;
+    border-radius: var(--forge-border-radius-lg);
+    margin-bottom: 2rem;
+  }
+
+  .forge-overlap__text {
+    padding-right: 0;
+  }
+
+  .forge-overlap--reverse .forge-overlap__img {
+    border-radius: var(--forge-border-radius-lg);
+  }
+
   .forge-overlap--reverse .forge-overlap__text {
     padding-left: 0;
   }
 }
 
-/* 30. Brand Typography Personality — SPORT AESTHETIC */
+/* 30. Brand Typography Personality — SPORT/ATHLETIC */
 body {
-  font-weight: 500;
+  background: var(--apex-performance-secondary);
+  color: #FFFFFF;
 }
 
 h1, h2, h3, h4, h5, h6,
-.heading,
-.title {
-  font-weight: 900 !important;
-  text-transform: uppercase !important;
-  letter-spacing: 0.08em !important;
-}
-
-.label,
-.badge,
-.tag,
-.caption {
-  font-weight: 700 !important;
-  text-transform: uppercase !important;
-  letter-spacing: 0.12em !important;
-}
-
+.card__heading,
 .product__title,
-.collection__title,
-.banner__heading {
-  font-weight: 900 !important;
-  letter-spacing: 0.06em !important;
-}
-
-.button,
-.btn,
-input[type="submit"] {
-  font-weight: 700 !important;
-  text-transform: uppercase !important;
+.collection__title {
   letter-spacing: 0.08em !important;
+  text-transform: uppercase !important;
+  font-weight: 900 !important;
 }
 
-.forge-display {
-  font-size: clamp(5rem, 10vw, 10rem);
-  font-weight: 900;
+.subheading,
+.caption,
+.label {
+  letter-spacing: 0.12em;
   text-transform: uppercase;
-  letter-spacing: 0.04em;
+  font-weight: 700;
+}
+
+.hero__title,
+.banner__heading {
+  font-size: clamp(3.5rem, 8vw, 9rem);
   line-height: 0.95;
+  letter-spacing: 0.06em;
 }
 
-.forge-subheading {
-  font-size: clamp(1rem, 1.2vw, 1.2rem);
+.section__heading {
+  position: relative;
+  display: inline-block;
+}
+
+.section__heading::after {
+  content: '';
+  position: absolute;
+  bottom: -0.5rem;
+  left: 0;
+  width: 60px;
+  height: 4px;
+  background: var(--apex-performance-primary);
+}
+
+.technical-label {
+  font-family: 'Courier New', monospace;
+  font-size: 0.85rem;
   font-weight: 700;
-  text-transform: uppercase;
   letter-spacing: 0.15em;
+  text-transform: uppercase;
+  color: rgba(255, 255, 255, 0.6);
+}
+
+.performance-metric {
+  font-family: var(--forge-font-heading);
+  font-size: clamp(3rem, 6vw, 6rem);
+  font-weight: 900;
+  letter-spacing: 0.04em;
+  line-height: 1;
   color: var(--apex-performance-primary);
 }
 
-.forge-body-large {
-  font-size: clamp(1.2rem, 1.5vw, 1.4rem);
-  line-height: 1.6;
-  font-weight: 500;
+.bold-statement {
+  font-size: clamp(2rem, 4vw, 4rem);
+  font-weight: 900;
+  text-transform: uppercase;
+  letter-spacing: 0.06em;
+  line-height: 1.1;
+  color: #FFFFFF;
 }
 
-.forge-technical {
-  font-family: 'Geist Mono', monospace;
-  font-weight: 600;
-  letter-spacing: 0.05em;
+.dynamic-underline {
+  position: relative;
+  display: inline-block;
 }
 
-strong, b {
+.dynamic-underline::after {
+  content: '';
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  width: 0;
+  height: 3px;
+  background: var(--apex-performance-primary);
+  transition: width 0.4s cubic-bezier(0.34, 1.56, 0.64, 1);
+}
+
+.dynamic-underline:hover::after {
+  width: 100%;
+}
+
+.rte strong,
+.rte b {
+  color: var(--apex-performance-primary);
   font-weight: 900;
 }
 
-em, i {
-  font-style: normal;
-  color: var(--apex-performance-primary);
-  font-weight: 700;
+.rte em,
+.rte i {
+  color: rgba(255, 255, 255, 0.8);
+  font-style: italic;
 }
 
-::selection {
-  background: var(--apex-performance-primary);
-  color: #FFFFFF;
+blockquote {
+  border-left: 4px solid var(--apex-performance-primary);
+  padding-left: 2rem;
+  margin: 2rem 0;
+  font-size: 1.25rem;
+  font-weight: 700;
+  font-style: italic;
+  color: rgba(255, 255, 255, 0.9);
 }
