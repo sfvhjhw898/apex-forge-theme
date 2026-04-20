@@ -63,20 +63,19 @@
   }
 
   .card--standard {
-    background: #111 !important;
-    transition: box-shadow 0.3s cubic-bezier(0.4, 0, 0.2, 1) !important;
+    transition: box-shadow 0.3s cubic-bezier(0.34, 1.56, 0.64, 1);
   }
 
   .card--standard:hover {
-    box-shadow: 0 0 0 1.5px #0A0A0A, 0 0 24px rgba(10, 10, 10, 0.35) !important;
+    box-shadow: 0 0 0 1.5px #0A0A0A, 0 0 24px rgba(10, 10, 10, 0.35);
   }
 
-  .card--standard .card__media img {
+  .card--standard img {
     filter: saturate(0);
-    transition: filter 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+    transition: filter 0.3s ease;
   }
 
-  .card--standard:hover .card__media img {
+  .card--standard:hover img {
     filter: saturate(1);
   }
 {%- endstyle -%}

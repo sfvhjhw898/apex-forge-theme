@@ -1,7 +1,7 @@
 {
   "sections": {
     "forge_hero": {
-      "type": "main-banner",
+      "type": "forge-scroll-hero",
       "settings": {
         "heading": "TRAIN HARDER.",
         "subheading": "performance · athletic · bold — made for Serious athletes and fitness enthusiasts aged.",
